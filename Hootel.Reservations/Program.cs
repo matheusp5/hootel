@@ -1,7 +1,16 @@
+using Hootel.Reservations.Infrastructure;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddControllers();
+
+builder.Services.AddDbContext<DatabaseContext>(opt =>
+{
+    opt.UseSqlite("Data Source=reservations.db");
+});
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
