@@ -16,9 +16,13 @@ public class HotelController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index([FromQuery] int q)
     {
         var hotels = await _hotelRepository.Get();
+        if (q != null)
+        {
+            hotels = await _hotelRepository.GetQuantity(q);
+        }
         return Ok(hotels);
     }
 

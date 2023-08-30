@@ -18,6 +18,11 @@ public class HotelRepository : IHotelRepository
     {
         return await _database.Hotels.ToListAsync();
     }
+    
+    public async Task<List<Hotel>> GetQuantity(int quantity)
+    {
+        return await _database.Hotels.Take(quantity).ToListAsync();
+    }
 
     public async Task<Hotel> Get(int id)
     {
