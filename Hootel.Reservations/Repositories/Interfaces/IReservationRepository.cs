@@ -2,7 +2,7 @@
 
 namespace Hootel.Reservations.Repositories.Interfaces;
 
-public interface IReservationsRepository
+public interface IReservationRepository
 {
     Task<List<Reservation>> Get();
     Task<Reservation> Get(int id);
