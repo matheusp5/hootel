@@ -2,7 +2,7 @@
 
 namespace Hootel.Hotels.Repositories.Interfaces;
 
-public interface IHotelsRepository
+public interface IHotelRepository
 {
     Task<List<Hotel>> Get();
     Task<Hotel> Get(int id);

@@ -13,7 +13,7 @@ builder.Services.AddDbContext<DatabaseContext>(opt =>
     opt.UseSqlite("Data Source=reservations.db");
 });
 
-builder.Services.AddScoped<IReservationRepository, ReservatioRepository>();
+builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

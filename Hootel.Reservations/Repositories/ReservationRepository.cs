@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Hootel.Reservations.Repositories;
 
-public class ReservatioRepository : IReservationRepository
+public class ReservationRepository : IReservationRepository
 {
     private readonly DatabaseContext _database;
 
-    public ReservatioRepository(DatabaseContext database)
+    public ReservationRepository(DatabaseContext database)
     {
         _database = database;
     }

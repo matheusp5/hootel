@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Hootel.Hotels.Repositories;
 
-public class HotelsRepository : IHotelsRepository
+public class HotelRepository : IHotelRepository
 {
     private readonly DatabaseContext _database;
 
-    public HotelsRepository(DatabaseContext database)
+    public HotelRepository(DatabaseContext database)
     {
         _database = database;
     }

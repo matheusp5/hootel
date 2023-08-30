@@ -8,39 +8,39 @@ namespace Hootel.Hotels.Controllers;
 [ApiController]
 public class HotelController : ControllerBase
 {
-    private readonly IHotelsRepository _hotelsRepository;
+    private readonly IHotelRepository _hotelRepository;
 
-    public HotelController(IHotelsRepository hotelsRepository)
+    public HotelController(IHotelRepository hotelRepository)
     {
-        _hotelsRepository = hotelsRepository;
+        _hotelRepository = hotelRepository;
     }
 
     [HttpGet]
     public async Task<IActionResult> Index()
     {
-        var hotels = await _hotelsRepository.Get();
+        var hotels = await _hotelRepository.Get();
         return Ok(hotels);
     }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> Hotel([FromRoute] int id)
     {
-        var hotel = await _hotelsRepository.Get(id);
+        var hotel = await _hotelRepository.Get(id);
         return Ok(hotel);
     }
 
     [HttpPost]
     public async Task<IActionResult> Add([FromBody] Hotel hotel)
     {
-        await _hotelsRepository.Save(hotel);
+        await _hotelRepository.Save(hotel);
         return StatusCode(201);
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> Remove([FromRoute] int id)
     {
-        var hotel = await _hotelsRepository.Get(id);
-        await _hotelsRepository.Delete(hotel);
+        var hotel = await _hotelRepository.Get(id);
+        await _hotelRepository.Delete(hotel);
         return Ok();
     }
 }

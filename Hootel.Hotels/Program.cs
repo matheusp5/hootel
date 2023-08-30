@@ -13,7 +13,7 @@ builder.Services.AddDbContext<DatabaseContext>(opt =>
     opt.UseSqlite("Data Source=hotels.db");
 });
 
-builder.Services.AddScoped<IHotelsRepository, HotelsRepository>();
+builder.Services.AddScoped<IHotelRepository, HotelRepository>();
 
 
 builder.Services.AddEndpointsApiExplorer();
