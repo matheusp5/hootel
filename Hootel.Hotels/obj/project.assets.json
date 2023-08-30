@@ -669,6 +669,16 @@
         "build": {
           "buildTransitive/net6.0/System.Text.Json.targets": {}
         }
+      },
+      "Hootel.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/Hootel.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Hootel.Models.dll": {}
+        }
       }
     }
   },
@@ -1749,10 +1759,16 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Hootel.Models/1.0.0": {
+      "type": "project",
+      "path": "../Hootel.Models/Hootel.Models.csproj",
+      "msbuildProject": "../Hootel.Models/Hootel.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "Hootel.Models >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.10",
       "Microsoft.EntityFrameworkCore >= 7.0.10",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.10",
@@ -1788,7 +1804,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\windows\\RiderProjects\\Hootel\\Hootel.Models\\Hootel.Models.csproj": {
+              "projectPath": "C:\\Users\\windows\\RiderProjects\\Hootel\\Hootel.Models\\Hootel.Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

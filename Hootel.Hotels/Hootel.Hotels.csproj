@@ -32,4 +32,8 @@
       <Folder Include="Controllers\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Hootel.Models\Hootel.Models.csproj" />
+    </ItemGroup>
+
 </Project>
