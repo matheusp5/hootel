@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "vtT8qtU4stT5W0h3fgXAWa7GwjudjunIJSPEdCdKBUF2Hx+I/LSy/9XXfRUmo9JEAcaV/ZgSRYfUvUiJPftQ+Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\windows\\RiderProjects\\Hootel\\Hootel.Reservations\\Hootel.Reservations.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\windows\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.10\\microsoft.aspnetcore.openapi.7.0.10.nupkg.sha512",
+    "C:\\Users\\windows\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\windows\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\windows\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\windows\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\windows\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "C:\\Users\\windows\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
