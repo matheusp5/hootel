@@ -34,24 +34,26 @@ public class AuthController : Controller
     
     
     [HttpPost("login")]
-    public async Task<IActionResult> PostLogin([FromBody] LoginDTO dto)
+    public async Task<IActionResult> PostLogin(LoginDTO dto)
     {
-        var result = await this._signInManager.PasswordSignInAsync(new ApplicationUser()
+        var user = await this._userManager.FindByEmailAsync(dto.Email);
+        if (user != null)
         {
-            Email = dto.Email
-        }, dto.Password, true, false);
+            var result = await this._signInManager.PasswordSignInAsync(user, dto.Password, true, false);
 
-        if (result.Succeeded)
-        {
-            return RedirectToAction("Index", "Home");
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
+
         ViewBag.Error = "E-mail ou senha incorretos";
         return View("Login");
     }
     
     
     [HttpPost("register")]
-    public async Task<IActionResult> PostRegister([FromBody] RegisterDTO dto)
+    public async Task<IActionResult> PostRegister(RegisterDTO dto)
     {
         var result = await this._userManager.CreateAsync(new ApplicationUser()
         {

@@ -4,16 +4,16 @@
     ViewData["Title"] = "Login";
 }
 <h1 class="display-4">Realize o login</h1>
-<h2 class="display-3 text-danger">@ViewBag.Error</h2>
-<form asp-action="PostLogin">
+<h2 class="display-6 text-danger">@ViewBag.Error</h2>
+<form method="POST" asp-action="PostLogin">
     <div class="form-group">
         <label for="exampleInputEmail1">Endereço de e-mail</label>
         <input type="email" asp-for="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail">
-        <small id="emailHelp" class="form-text text-muted">Nós nunca iremos compartilhar o seu e-mail com outros.</small>
+        <small id="emailHelp" class="form-text text-muted mb-3">Nós nunca iremos compartilhar o seu e-mail com outros.</small>
     </div>
     <div class="form-group">
         <label for="exampleInputPassword1">Senha</label>
-        <input type="password" asp-for="Password"  class="form-control" id="exampleInputPassword1" placeholder="Senha">
+        <input type="password" asp-for="Password"  class="form-control mb-3" id="exampleInputPassword1" placeholder="Senha">
     </div>
     <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
