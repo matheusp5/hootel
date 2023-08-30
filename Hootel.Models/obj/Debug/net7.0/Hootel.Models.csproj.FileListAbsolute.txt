@@ -1,0 +1,11 @@
+C:\Users\windows\RiderProjects\Hootel\Hootel.Models\bin\Debug\net7.0\Hootel.Models.deps.json
+C:\Users\windows\RiderProjects\Hootel\Hootel.Models\bin\Debug\net7.0\Hootel.Models.dll
+C:\Users\windows\RiderProjects\Hootel\Hootel.Models\bin\Debug\net7.0\Hootel.Models.pdb
+C:\Users\windows\RiderProjects\Hootel\Hootel.Models\obj\Debug\net7.0\Hootel.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\windows\RiderProjects\Hootel\Hootel.Models\obj\Debug\net7.0\Hootel.Models.AssemblyInfoInputs.cache
+C:\Users\windows\RiderProjects\Hootel\Hootel.Models\obj\Debug\net7.0\Hootel.Models.AssemblyInfo.cs
+C:\Users\windows\RiderProjects\Hootel\Hootel.Models\obj\Debug\net7.0\Hootel.Models.csproj.CoreCompileInputs.cache
+C:\Users\windows\RiderProjects\Hootel\Hootel.Models\obj\Debug\net7.0\Hootel.Models.dll
+C:\Users\windows\RiderProjects\Hootel\Hootel.Models\obj\Debug\net7.0\refint\Hootel.Models.dll
+C:\Users\windows\RiderProjects\Hootel\Hootel.Models\obj\Debug\net7.0\Hootel.Models.pdb
+C:\Users\windows\RiderProjects\Hootel\Hootel.Models\obj\Debug\net7.0\ref\Hootel.Models.dll
