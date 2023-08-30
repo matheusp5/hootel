@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using System.Security.Claims;
+using Hootel.Client.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Hootel.Client.Models;
 using Microsoft.AspNetCore.Identity;
@@ -32,14 +34,54 @@ public class AuthController : Controller
     
     
     [HttpPost("login")]
-    public async Task PostLogin()
+    public async Task<IActionResult> PostLogin([FromBody] LoginDTO dto)
     {
+        var result = await this._signInManager.PasswordSignInAsync(new ApplicationUser()
+        {
+            Email = dto.Email
+        }, dto.Password, true, false);
+
+        if (result.Succeeded)
+        {
+            return RedirectToAction("Index", "Home");
+        }
+        ViewBag.Error = "E-mail ou senha incorretos";
+        return View("Login");
     }
     
     
     [HttpPost("register")]
-    public async Task PostRegister()
+    public async Task<IActionResult> PostRegister([FromBody] RegisterDTO dto)
     {
+        var result = await this._userManager.CreateAsync(new ApplicationUser()
+        {
+            Email = dto.Email,
+            UserName = dto.Name
+        }, dto.Password);
+        if (result.Succeeded)
+        {
+            var user = await this._userManager.FindByEmailAsync(dto.Email);
+            if (!(await this._roleManager.RoleExistsAsync("user")))
+            {
+                await this._roleManager.CreateAsync(new()
+                {
+                    Name = "user"
+                });
+            }
+            
+            result = await this._userManager.AddToRoleAsync(user, "user");
+            if (result.Succeeded)
+            {
+                await this._userManager.AddClaimsAsync(user, new[]
+                {
+                    new Claim("email", dto.Email)
+                });
+            }
+
+            return RedirectToAction("Login");
+        }
+
+        return RedirectToAction("Register");
     }
     
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

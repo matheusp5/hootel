@@ -1,7 +1,23 @@
-﻿@{
+﻿@model Hootel.Client.DTO.RegisterDTO
+
+@{
     ViewData["Title"] = "Registro";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Realize o registro</h1>
-</div>
+<h1 class="display-4">Realize o registro</h1>
+<form asp-action="PostRegister">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Nome completo</label>
+        <input type="text" asp-for="Name" class="form-control" aria-describedby="nameHelp" placeholder="Nome completo">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Endereço de e-mail</label>
+        <input type="email" asp-for="Email" class="form-control" aria-describedby="emailHelp" placeholder="E-mail">
+        <small id="emailHelp" class="form-text text-muted">Nós nunca iremos compartilhar o seu e-mail com outros.</small>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Senha</label>
+        <input type="password" asp-for="Password"  class="form-control" id="exampleInputPassword1" placeholder="Senha">
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>

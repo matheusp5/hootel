@@ -1,0 +1,9 @@
+C:\Users\windows\RiderProjects\Hootel\Hootel.Client\obj\Debug\net7.0\Hootel.Client.csproj.AssemblyReference.cache
+C:\Users\windows\RiderProjects\Hootel\Hootel.Client\obj\Debug\net7.0\Hootel.Client.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\windows\RiderProjects\Hootel\Hootel.Client\obj\Debug\net7.0\Hootel.Client.AssemblyInfoInputs.cache
+C:\Users\windows\RiderProjects\Hootel\Hootel.Client\obj\Debug\net7.0\Hootel.Client.AssemblyInfo.cs
+C:\Users\windows\RiderProjects\Hootel\Hootel.Client\obj\Debug\net7.0\Hootel.Client.csproj.CoreCompileInputs.cache
+C:\Users\windows\RiderProjects\Hootel\Hootel.Client\obj\Debug\net7.0\Hootel.Client.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\windows\RiderProjects\Hootel\Hootel.Client\obj\Debug\net7.0\Hootel.Client.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\windows\RiderProjects\Hootel\Hootel.Client\obj\Debug\net7.0\Hootel.Client.RazorAssemblyInfo.cache
+C:\Users\windows\RiderProjects\Hootel\Hootel.Client\obj\Debug\net7.0\Hootel.Client.RazorAssemblyInfo.cs
