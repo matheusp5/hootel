@@ -1,4 +1,6 @@
 using Hootel.Hotels.Infrastructure;
+using Hootel.Hotels.Repositories;
+using Hootel.Hotels.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +12,9 @@ builder.Services.AddDbContext<DatabaseContext>(opt =>
 {
     opt.UseSqlite("Data Source=hotels.db");
 });
+
+builder.Services.AddScoped<IHotelsRepository, HotelsRepository>();
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

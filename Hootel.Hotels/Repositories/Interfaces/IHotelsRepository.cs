@@ -4,8 +4,8 @@ namespace Hootel.Hotels.Repositories.Interfaces;
 
 public interface IHotelsRepository
 {
-    List<Hotel> Get();
-    Hotel Get(string id);
-    void Save(Hotel hotel);
-    void Delete(string id);
+    Task<List<Hotel>> Get();
+    Task<Hotel> Get(int id);
+    Task Save(Hotel hotel);
+    Task Delete(Hotel hotel);
 }
