@@ -8,39 +8,39 @@ namespace Hootel.Rooms.Controllers;
 [ApiController]
 public class RoomController : ControllerBase
 {
-    private readonly IRoomsRepository _roomsRepository;
+    private readonly IRoomRepository _roomRepository;
 
-    public RoomController(IRoomsRepository roomsRepository)
+    public RoomController(IRoomRepository roomRepository)
     {
-        _roomsRepository = roomsRepository;
+        _roomRepository = roomRepository;
     }
     
     [HttpGet]
     public async Task<IActionResult> Index()
     {
-        var hotels = await _roomsRepository.Get();
+        var hotels = await _roomRepository.Get();
         return Ok(hotels);
     }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> Hotel([FromRoute] int id)
     {
-        var hotel = await _roomsRepository.Get(id);
+        var hotel = await _roomRepository.Get(id);
         return Ok(hotel);
     }
 
     [HttpPost]
     public async Task<IActionResult> Add([FromBody] Room hotel)
     {
-        await _roomsRepository.Save(hotel);
+        await _roomRepository.Save(hotel);
         return StatusCode(201);
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> Remove([FromRoute] int id)
     {
-        var hotel = await _roomsRepository.Get(id);
-        await _roomsRepository.Delete(hotel);
+        var hotel = await _roomRepository.Get(id);
+        await _roomRepository.Delete(hotel);
         return Ok();
     }
 }

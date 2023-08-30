@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Hootel.Rooms.Repositories;
 
-public class RoomsRepository : IRoomsRepository
+public class RoomRepository : IRoomRepository
 {
     private readonly DatabaseContext _database;
 
-    public RoomsRepository(DatabaseContext database)
+    public RoomRepository(DatabaseContext database)
     {
         _database = database;
     }

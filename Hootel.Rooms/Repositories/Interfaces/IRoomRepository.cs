@@ -2,7 +2,7 @@
 
 namespace Hootel.Rooms.Repositories;
 
-public interface IRoomsRepository
+public interface IRoomRepository
 {
     Task<List<Room>> Get();
     Task<Room> Get(int id);
