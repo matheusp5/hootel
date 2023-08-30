@@ -50,6 +50,13 @@ public class AuthController : Controller
         ViewBag.Error = "E-mail ou senha incorretos";
         return View("Login");
     }
+
+    [HttpGet("logout")]
+    public async Task<IActionResult> Logout()
+    {
+        await this._signInManager.SignOutAsync();
+        return RedirectToAction("Index", "Home");
+    }
     
     
     [HttpPost("register")]
