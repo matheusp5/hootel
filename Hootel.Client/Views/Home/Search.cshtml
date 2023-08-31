@@ -1,3 +1,97 @@
-﻿@{
+﻿@model List<Hootel.Models.Room>
+
+@{
     ViewData["Title"] = "Buscar";
 }
+
+<div class="container mt-5">
+    <h1>Precisa de um quarto de hotel?</h1>
+    @if (ViewBag.AlreadySearch)
+    {
+        @if (Model.Count == 0)
+        {
+            <h5>Nenhum quarto encontrado</h5>
+        }
+        else
+        {
+            <div class="d-flex gap-3">
+                @foreach (var room in Model)
+                {
+                    <div class="w-25 p-3 card">
+                        <p>
+                            @room.Description
+                        </p>
+                        <ul>
+                            <li>Para @room.PeopleNumber pessoa(s);</li>
+                            <li>@room.BathroomsNumber banheiro(s).</li>
+                            <li>Quarto nº @room.RoomNumber</li>
+                        </ul>
+                        <h4>
+                            R$ @room.DailyPrice.ToString().Replace(".", ",") por dia.
+                        </h4>
+                        <a class="btn btn-primary mt-1">Goste!</a>
+                        <a class="btn btn-primary mt-1">Ver hotel</a>
+                    </div>
+                }
+            </div>
+        }
+    }
+    else
+    {
+        <form method="GET" id="searchForm" class="mt-5">
+            <div class="mb-3">
+                <label for="peopleNumber" class="form-label">Número de Pessoas</label>
+                <input type="number" class="form-control" id="peopleNumber" name="people" placeholder="Deixe em branco para ignorar">
+            </div>
+            <div class="mb-3">
+                <label for="roomsNumber" class="form-label">Número de Quartos</label>
+                <input type="number" class="form-control" id="roomsNumber" name="rooms" placeholder="Deixe em branco para ignorar">
+            </div>
+            <div class="mb-3">
+                <label for="bathroomsNumber" class="form-label">Número de Banheiros</label>
+                <input type="number" class="form-control" id="bathroomsNumber" name="bath" placeholder="Deixe em branco para ignorar">
+            </div>
+            <div class="mb-3">
+                <label for="state" class="form-label">Estado</label>
+                <select class="form-control" id="states" name="state" required>
+                    <option value="">Selecione um estado</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="city" class="form-label">Cidade</label>
+                <select class="form-control" id="cities" name="city" required>
+                    <option value="">Selecione uma cidade</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+    }
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+        // Fazer a requisição para obter a lista de estados do Brasil
+        $.get("https://servicodados.ibge.gov.br/api/v1/localidades/estados", function(data) {
+            const statesSelect = $("#states");
+            data.forEach(state => {
+                if (state.sigla === "BR") {
+                    return; // Ignorar a opção "Brasil"
+                }
+                statesSelect.append(new Option(state.nome, state.sigla));
+            });
+        });
+
+        // Quando um estado é selecionado, buscar as cidades correspondentes
+        $("#states").change(function() {
+            const selectedState = $(this).val();
+            if (selectedState) {
+                $.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedState}/municipios`, function(data) {
+                    const citiesSelect = $("#cities");
+                    citiesSelect.empty();
+                    data.forEach(city => {
+                        citiesSelect.append(new Option(city.nome, city.nome));
+                    });
+                });
+            }
+        });
+    </script>
