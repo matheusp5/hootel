@@ -27,6 +27,15 @@ public class HomeController : Controller
         return View(hotel);
     }
     
+    /*
+    [HttpGet("search")]
+    public async Task<IActionResult> Search([FromQuery] int s)
+    {
+        var hotel = await this._hotelService.GetHotel(id);
+        return View(hotel);
+    }
+    */
+    
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
