@@ -16,6 +16,8 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<DatabaseContext>()
     .AddDefaultTokenProviders();
 builder.Services.AddHttpClient();
+
+builder.Services.AddScoped<IRoomService, RoomService>();
 builder.Services.AddScoped<IHotelService, HotelService>();
 
 var app = builder.Build();
