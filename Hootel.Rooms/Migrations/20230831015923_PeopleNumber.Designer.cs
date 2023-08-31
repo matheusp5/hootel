@@ -2,6 +2,7 @@
 using Hootel.Rooms.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Hootel.Rooms.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230831015923_PeopleNumber")]
+    partial class PeopleNumber
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.10");
@@ -43,9 +46,6 @@ namespace Hootel.Rooms.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("RoomNumber")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("isReserved")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");

@@ -15,12 +15,22 @@ public class RoomRepository : IRoomRepository
 
     public async Task<List<Room>> Get()
     {
-        return await _database.Rooms.ToListAsync();
+        return await _database.Rooms.Where(r => !r.isReserved).ToListAsync();
     }
 
     public async Task<Room> Get(int id)
     {
-        return await _database.Rooms.FirstOrDefaultAsync(r => r.Id == id);
+        return await _database.Rooms.FirstOrDefaultAsync(r => r.Id == id && !r.isReserved);
+    }
+
+    public async Task<List<Room>> GetByHotelId(int id)
+    {
+        return await _database.Rooms.Where(r => r.HotelId == id && !r.isReserved).ToListAsync();
+    }
+
+    public async Task<List<Room>> ForPeople(int people)
+    {
+        return await _database.Rooms.Where(r => r.PeopleNumber == people && !r.isReserved).ToListAsync();
     }
 
     public async Task Save(Room room)
