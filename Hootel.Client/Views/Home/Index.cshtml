@@ -44,7 +44,7 @@
             @hotel.Description.Substring(0, Math.Min(hotel.Description.Length, 10))...<br/>
           </p>
           <p>@hotel.City, @hotel.State</p>
-          <a asp-action="Hotel" asp-route-id="@hotel.Id">Visualizar detalhes</a>
+          <a asp-action="ViewHotel" asp-controller="Hotel" asp-route-id="@hotel.Id">Visualizar detalhes</a>
         </div>
       </div>
     }

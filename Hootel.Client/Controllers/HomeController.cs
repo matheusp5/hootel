@@ -8,13 +8,11 @@ namespace Hootel.Client.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly IRoomService _roomService;
     private readonly IHotelService _hotelService;
 
-    public HomeController(IHotelService hotelService, IRoomService roomService)
+    public HomeController(IHotelService hotelService)
     {
         _hotelService = hotelService;
-        _roomService = roomService;
     }
 
     public async Task<IActionResult> Index()
@@ -23,17 +21,6 @@ public class HomeController : Controller
         return View(hotels);
     }
 
-    [HttpGet("hotel/{id}")]
-    public async Task<IActionResult> Hotel([FromRoute] int id)
-    {
-        var hotel = await this._hotelService.GetHotel(id);
-        var availableRooms = await this._roomService.GetRoomsByHotel(id);
-        return View(new HomeHotelViewModel()
-        {
-            Hotel = hotel,
-            AvailableRooms = availableRooms
-        });
-    }
     
     /*
     [HttpGet("search")]

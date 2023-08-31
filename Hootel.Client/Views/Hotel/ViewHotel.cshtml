@@ -1,0 +1,31 @@
+﻿
+@model Hootel.Client.ViewModel.HomeHotelViewModel
+
+@{
+    ViewData["Title"] = Model.Hotel.Name;
+}
+
+<h1 class="display-4 mb-3">Ótima escolha! @Model.Hotel.Name</h1>
+<p>@Model.Hotel.Description</p>
+<p>Tenha em mente que esse hotel fica localizado em @Model.Hotel.Address, @Model.Hotel.City, @Model.Hotel.State</p>
+
+<h2 class="mt-4">Quartos disponíveis</h2>
+<div class="flex g-3">
+    @foreach (var room in Model.AvailableRooms)
+    {
+        <div class="w-25 p-3">
+            <p>
+                @room.Description
+            </p>
+            <ul>
+                <li>Para @room.PeopleNumber pessoa(s);</li>
+                <li>@room.BathroomsNumber banheiros.</li>
+                <li>Quarto @room.RoomNumber</li>
+            </ul>
+            <h4>
+                R$ @room.DailyPrice.ToString().Replace(".", ",") por dia.
+            </h4>
+            <a class="btn btn-primary mt-1">Reservar</a>
+        </div>
+    }
+</div>
