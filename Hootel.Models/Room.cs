@@ -6,6 +6,6 @@ public class Room : BaseModel
     public string Description { get; set; }
     public int RoomNumber { get; set; }
     public int BathroomsNumber { get; set; }
-    public int DailyPrice { get; set; }
+    public decimal DailyPrice { get; set; }
     public int HotelId { get; set; }
 }
