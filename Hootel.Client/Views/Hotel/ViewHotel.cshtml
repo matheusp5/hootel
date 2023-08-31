@@ -10,17 +10,17 @@
 <p>Tenha em mente que esse hotel fica localizado em @Model.Hotel.Address, @Model.Hotel.City, @Model.Hotel.State</p>
 
 <h2 class="mt-4">Quartos disponíveis</h2>
-<div class="flex g-3">
+<div class="flex g-3 mt-2">
     @foreach (var room in Model.AvailableRooms)
     {
-        <div class="w-25 p-3">
+        <div class="w-25 p-3 card">
             <p>
                 @room.Description
             </p>
             <ul>
                 <li>Para @room.PeopleNumber pessoa(s);</li>
-                <li>@room.BathroomsNumber banheiros.</li>
-                <li>Quarto @room.RoomNumber</li>
+                <li>@room.BathroomsNumber banheiro(s).</li>
+                <li>Quarto nº @room.RoomNumber</li>
             </ul>
             <h4>
                 R$ @room.DailyPrice.ToString().Replace(".", ",") por dia.

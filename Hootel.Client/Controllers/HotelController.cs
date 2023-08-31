@@ -15,6 +15,7 @@ public class HotelController : Controller
         _hotelService = hotelService;
         _roomService = roomService;
     }
+    
     [HttpGet("hotel/{h}")]
     public async Task<IActionResult> ViewHotel([FromRoute] int h)
     {
