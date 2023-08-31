@@ -15,6 +15,7 @@ builder.Services.AddDbContext<DatabaseContext>(opt =>
 
 builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
 
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

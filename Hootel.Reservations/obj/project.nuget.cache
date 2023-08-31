@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tFbZUJDvi+ELyj1KK9hH38maiSoXPfMFviy4aaAYTnqlovaFROdGaKTFAntvch/PKR6i2PS9u31jMbxcee/Ykg==",
+  "dgSpecHash": "pkqfTFOcAVGVyWjBRBwAQRoh7kgilewTBNZT+z4bt0FbKDdRs/MeMKrmRBOPITuh4fojP2edY5ovzq7fXLC7Wg==",
   "success": true,
   "projectFilePath": "C:\\Users\\windows\\RiderProjects\\Hootel\\Hootel.Reservations\\Hootel.Reservations.csproj",
   "expectedPackageFiles": [
@@ -38,8 +38,9 @@
     "C:\\Users\\windows\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
     "C:\\Users\\windows\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\windows\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\windows\\.nuget\\packages\\system.net.http.json\\7.0.1\\system.net.http.json.7.0.1.nupkg.sha512",
     "C:\\Users\\windows\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
-    "C:\\Users\\windows\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512"
+    "C:\\Users\\windows\\.nuget\\packages\\system.text.json\\7.0.2\\system.text.json.7.0.2.nupkg.sha512"
   ],
   "logs": []
 }
