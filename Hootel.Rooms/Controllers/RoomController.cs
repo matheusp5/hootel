@@ -23,16 +23,16 @@ public class RoomController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> Hotel([FromRoute] int id)
+    public async Task<IActionResult> Room([FromRoute] int id)
     {
         var hotel = await _roomRepository.Get(id);
         return Ok(hotel);
     }
 
     [HttpPost]
-    public async Task<IActionResult> Add([FromBody] Room hotel)
+    public async Task<IActionResult> Add([FromBody] Room room)
     {
-        await _roomRepository.Save(hotel);
+        await _roomRepository.Save(room);
         return StatusCode(201);
     }
 
