@@ -76,3 +76,5 @@ C:\Users\windows\RiderProjects\Hootel\Hootel.Client\obj\Debug\net7.0\refint\Hoot
 C:\Users\windows\RiderProjects\Hootel\Hootel.Client\obj\Debug\net7.0\Hootel.Client.pdb
 C:\Users\windows\RiderProjects\Hootel\Hootel.Client\obj\Debug\net7.0\Hootel.Client.genruntimeconfig.cache
 C:\Users\windows\RiderProjects\Hootel\Hootel.Client\obj\Debug\net7.0\ref\Hootel.Client.dll
+C:\Users\windows\RiderProjects\Hootel\Hootel.Client\bin\Debug\net7.0\Hootel.Models.dll
+C:\Users\windows\RiderProjects\Hootel\Hootel.Client\bin\Debug\net7.0\Hootel.Models.pdb

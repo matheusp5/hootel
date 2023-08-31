@@ -1,11 +1,13 @@
-﻿@{
+﻿@model List<Hootel.Models.Hotel>
+
+@{
     ViewData["Title"] = "Home";
 }
 
-<h1 class="display-4 mb-1">Precisa de um hotel?</h1>
-<a class="mb-5 display-6">Clique aqui para escolher a melhor opção...</a>
+<h1 class="display-4 mb-3">Precisa de um hotel?</h1>
+<a class=" mb-5">Clique aqui para escolher a melhor opção...</a>
 
-<div id="carouselExample" class="carousel slide">
+<div id="carouselExample" class="carousel slide mt-3">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="https://images3.alphacoders.com/101/thumbbig-101917.webp" class="d-block w-100" alt="...">
@@ -27,9 +29,23 @@
   </button>
 </div>
 
-<h2 class="mt-5">
-    Faça a melhor escolha!
+<h2 class="mt-5 display-5">
+  Faça a melhor escolha!
 </h2>
-<div class="my-1">
-    
+<div class="my-5 d-flex justify-content-around gap-3">
+    @foreach (var hotel in Model)
+    {
+      <div class="card w-25">
+        <div class="card-body p-2">
+          <h4>
+            @hotel.Name
+          </h4>
+          <p>
+            @hotel.Description.Substring(0, Math.Min(hotel.Description.Length, 10))...<br/>
+          </p>
+          <p>@hotel.City, @hotel.State</p>
+          <a asp-action="Hotel" asp-route-id="@hotel.Id">Visualizar detalhes</a>
+        </div>
+      </div>
+    }
 </div>

@@ -10,32 +10,28 @@ public class HotelService : IHotelService
     public HotelService(HttpClient httpClient)
     {
         _httpClient = httpClient;
-        _httpClient.BaseAddress = new Uri("http://localhost:5161/api"); 
+        _httpClient.BaseAddress = new Uri("http://localhost:5161"); 
     }
     
-    public async Task<List<Room>> GetAllHotels(int q = 0)
+    public async Task<List<Hotel>> GetAllHotels(int q = 0)
     {
-        var response = await _httpClient.GetAsync($"hotels?q={q}");
-        response.EnsureSuccessStatusCode();
-        return await response.Content.ReadFromJsonAsync<List<Room>>();
+        var response = await _httpClient.GetAsync($"api/hotels?q={q}");
+        return await response.Content.ReadFromJsonAsync<List<Hotel>>();
     }
 
-    public async Task<Room> GetHotel(int id)
+    public async Task<Hotel> GetHotel(int id)
     {
-        var response = await _httpClient.GetAsync($"hotels/{id}");
-        response.EnsureSuccessStatusCode();
-        return await response.Content.ReadFromJsonAsync<Room>();
+        var response = await _httpClient.GetAsync($"api/hotels/{id}");
+        return await response.Content.ReadFromJsonAsync<Hotel>();
     }
 
     public async Task CreateHotel(Hotel hotel)
     {
-        var response = await _httpClient.PostAsJsonAsync("hotels", hotel);
-        response.EnsureSuccessStatusCode();
+         await _httpClient.PostAsJsonAsync("api/hotels", hotel);
     }
 
     public async Task DeleteHotel(int id)
     {
-        var response = await _httpClient.DeleteAsync($"hotels/{id}");
-        response.EnsureSuccessStatusCode();
+        await _httpClient.DeleteAsync($"api/hotels/{id}");
     }
 }

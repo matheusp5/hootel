@@ -1,14 +1,30 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Hootel.Client.Models;
+using Hootel.Client.Services.Interfaces;
 
 namespace Hootel.Client.Controllers;
 
 public class HomeController : Controller
 {
-    public IActionResult Index()
+    private readonly IHotelService _hotelService;
+
+    public HomeController(IHotelService hotelService)
     {
-        return View();
+        _hotelService = hotelService;
+    }
+
+    public async Task<IActionResult> Index()
+    {
+        var hotels = await this._hotelService.GetAllHotels(5);
+        return View(hotels);
+    }
+
+    [HttpGet("hotel/{id}")]
+    public async Task<IActionResult> Hotel([FromRoute] int id)
+    {
+        var hotel = await this._hotelService.GetHotel(id);
+        return View(hotel);
     }
     
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

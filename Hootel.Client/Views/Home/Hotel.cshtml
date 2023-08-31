@@ -1,0 +1,9 @@
+﻿@model Hootel.Models.Hotel
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<h1 class="display-4 mb-3">Ótima escolha! @Model.Name</h1>
+<p>@Model.Description</p>
+<p>Tenha em mente que esse hotel fica localizado em @Model.Address, @Model.City, @Model.State</p>
