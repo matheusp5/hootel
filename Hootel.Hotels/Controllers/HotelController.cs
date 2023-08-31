@@ -19,7 +19,7 @@ public class HotelController : ControllerBase
     public async Task<IActionResult> Index([FromQuery] int q)
     {
         var hotels = await _hotelRepository.Get();
-        if (q != null)
+        if (q != 0)
         {
             hotels = await _hotelRepository.GetQuantity(q);
         }
