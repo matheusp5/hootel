@@ -28,6 +28,24 @@ public class RoomRepository : IRoomRepository
         return await _database.Rooms.Where(r => r.HotelId == id && !r.isReserved).ToListAsync();
     }
 
+    public async Task<List<Room>> GetAvailableRooms(DateTime checkIn, DateTime checkOut)
+    {
+        /*
+        var reservedRoomIds = _database.Reservations
+            .Where(r => r.CheckIn < checkOut && r.CheckOut > checkIn)
+            .Select(r => r.RoomId)
+            .ToList();
+
+        var availableRooms = await _database.Rooms
+            .Where(r => !reservedRoomIds.Contains(r.Id))
+            .ToListAsync();
+
+        return availableRooms;
+        */
+
+        throw new Exception();
+    }
+
     public async Task UpdateReservedRoom(int id)
     {
         var room = await this.Get(id);
