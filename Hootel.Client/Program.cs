@@ -1,5 +1,7 @@
 using Hootel.Client.Infrastructure;
 using Hootel.Client.Models;
+using Hootel.Client.Services;
+using Hootel.Client.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +15,8 @@ builder.Services.AddDbContext<DatabaseContext>(opt =>
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<DatabaseContext>()
     .AddDefaultTokenProviders();
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<IHotelService, HotelService>();
 
 var app = builder.Build();
 
