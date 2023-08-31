@@ -19,22 +19,22 @@ public class ReservationController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> Index()
     {
-        var hotels = await _reservationRepository.Get();
-        return Ok(hotels);
+        var reservations = await _reservationRepository.Get();
+        return Ok(reservations);
     }
     
     [HttpPost("reserved")]
     public async Task<IActionResult> GetReserved([FromBody] ReservedDTO dto)
     {
-        var hotels = await _reservationRepository.ReservedRooms(dto.CheckIn, dto.CheckOut);
-        return Ok(hotels);
+        var rooms = await _reservationRepository.ReservedRooms(dto.CheckIn, dto.CheckOut);
+        return Ok(rooms);
     }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> Hotel([FromRoute] int id)
     {
-        var hotel = await _reservationRepository.Get(id);
-        return Ok(hotel);
+        var reservation = await _reservationRepository.Get(id);
+        return Ok(reservation);
     }
 
     [HttpPost]
@@ -47,8 +47,8 @@ public class ReservationController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> Remove([FromRoute] int id)
     {
-        var hotel = await _reservationRepository.Get(id);
-        await _reservationRepository.Delete(hotel);
+        var reservation = await _reservationRepository.Get(id);
+        await _reservationRepository.Delete(reservation);
         return Ok();
     }
 }
