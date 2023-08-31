@@ -1,4 +1,5 @@
 ﻿using Hootel.Models;
+using Hootel.Rooms.DTO;
 using Hootel.Rooms.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,6 +29,14 @@ public class RoomController : ControllerBase
         var rooms = await _roomRepository.ForPeople(p);
         return Ok(rooms);
     }
+    
+    [HttpPost("reserved")]
+    public async Task<IActionResult> Reserved([FromBody] ReservedDTO dto)
+    {
+        var rooms = await _roomRepository.GetAvailableRooms(dto.CheckIn, dto.CheckOut);
+        return Ok(rooms);
+    }
+    
     
     [HttpGet("reserved/{id}")]
     public async Task<IActionResult> Reserved([FromRoute] int id)
