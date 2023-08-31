@@ -1,4 +1,5 @@
 ﻿using Hootel.Models;
+using Hootel.Reservations.DTO;
 using Hootel.Reservations.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,6 +20,13 @@ public class ReservationController : ControllerBase
     public async Task<IActionResult> Index()
     {
         var hotels = await _reservationRepository.Get();
+        return Ok(hotels);
+    }
+    
+    [HttpPost("reserved")]
+    public async Task<IActionResult> GetReserved([FromBody] ReservedDTO dto)
+    {
+        var hotels = await _reservationRepository.ReservedRooms(dto.CheckIn, dto.CheckOut);
         return Ok(hotels);
     }
 
