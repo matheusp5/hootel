@@ -1,5 +1,7 @@
 using Hootel.Rooms.Infrastructure;
 using Hootel.Rooms.Repositories;
+using Hootel.Rooms.Services;
+using Hootel.Rooms.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,8 +16,8 @@ builder.Services.AddDbContext<DatabaseContext>(opt =>
 
 builder.Services.AddHttpClient();
 
+builder.Services.AddScoped<IReservationService, ReservationService>();
 builder.Services.AddScoped<IRoomRepository, RoomRepository>();
-
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

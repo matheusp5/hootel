@@ -1,16 +1,19 @@
 ﻿using Hootel.Models;
 using Hootel.Rooms.Infrastructure;
+using Hootel.Rooms.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hootel.Rooms.Repositories;
 
 public class RoomRepository : IRoomRepository
 {
+    private readonly IReservationService _reservationService;
     private readonly DatabaseContext _database;
 
-    public RoomRepository(DatabaseContext database)
+    public RoomRepository(DatabaseContext database, IReservationService reservationService)
     {
         _database = database;
+        _reservationService = reservationService;
     }
 
     public async Task<List<Room>> Get()
@@ -30,20 +33,13 @@ public class RoomRepository : IRoomRepository
 
     public async Task<List<Room>> GetAvailableRooms(DateTime checkIn, DateTime checkOut)
     {
-        /*
-        var reservedRoomIds = _database.Reservations
-            .Where(r => r.CheckIn < checkOut && r.CheckOut > checkIn)
-            .Select(r => r.RoomId)
-            .ToList();
+        var reservedRoomIds = await _reservationService.GetReservedRooms(checkIn, checkOut);
 
         var availableRooms = await _database.Rooms
             .Where(r => !reservedRoomIds.Contains(r.Id))
             .ToListAsync();
 
         return availableRooms;
-        */
-
-        throw new Exception();
     }
 
     public async Task UpdateReservedRoom(int id)
