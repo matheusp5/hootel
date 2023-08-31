@@ -23,7 +23,7 @@ public class RoomController : ControllerBase
         return Ok(rooms);
     }
     
-    [HttpGet("people/{id}")]
+    [HttpGet("people")]
     public async Task<IActionResult> ForPeople([FromRoute] int p)
     {
         var rooms = await _roomRepository.ForPeople(p);
