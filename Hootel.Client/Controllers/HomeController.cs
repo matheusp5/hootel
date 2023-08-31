@@ -20,16 +20,12 @@ public class HomeController : Controller
         var hotels = await this._hotelService.GetAllHotels(5);
         return View(hotels);
     }
-
     
-    /*
-    [HttpGet("search")]
-    public async Task<IActionResult> Search([FromQuery] int s)
+    [HttpGet("buscar")]
+    public async Task<IActionResult> Search()
     {
-        var hotel = await this._hotelService.GetHotel(id);
-        return View(hotel);
+        return View();
     }
-    */
     
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
