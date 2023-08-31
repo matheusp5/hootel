@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "J3bVmPdVnv5YMnfihEp0Pc1M4qHfgl7iof3qGdbHrpOrcvOq/XT18VnRM/8YBktzvjOEQVxYM9E7Iagyr4plFw==",
+  "dgSpecHash": "M8BJFi4divBXN4N4vXfUJ+79NYeKY2YHqHcYkUt6KJXBn9aTptuhXDzWOZR+7VE9pSXwD8VY6bPgNZOzOi4a4Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\windows\\RiderProjects\\Hootel\\Hootel.Rooms\\Hootel.Rooms.csproj",
   "expectedPackageFiles": [
@@ -39,7 +39,7 @@
     "C:\\Users\\windows\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\windows\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\windows\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
-    "C:\\Users\\windows\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512"
+    "C:\\Users\\windows\\.nuget\\packages\\system.text.json\\7.0.3\\system.text.json.7.0.3.nupkg.sha512"
   ],
   "logs": []
 }

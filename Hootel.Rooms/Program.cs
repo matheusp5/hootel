@@ -12,7 +12,10 @@ builder.Services.AddDbContext<DatabaseContext>(opt =>
     opt.UseSqlite("Data Source=rooms.db");
 });
 
+builder.Services.AddHttpClient();
+
 builder.Services.AddScoped<IRoomRepository, RoomRepository>();
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

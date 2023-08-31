@@ -128,6 +128,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[7.0.3, )"
             }
           },
           "imports": [
