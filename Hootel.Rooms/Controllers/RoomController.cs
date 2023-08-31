@@ -18,15 +18,36 @@ public class RoomController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> Index()
     {
-        var hotels = await _roomRepository.Get();
-        return Ok(hotels);
+        var rooms = await _roomRepository.Get();
+        return Ok(rooms);
+    }
+    
+    [HttpGet("people/{id}")]
+    public async Task<IActionResult> ForPeople([FromRoute] int p)
+    {
+        var rooms = await _roomRepository.ForPeople(p);
+        return Ok(rooms);
+    }
+    
+    [HttpGet("reserved/{id}")]
+    public async Task<IActionResult> Reserved([FromRoute] int id)
+    {
+        await _roomRepository.UpdateReservedRoom(id);
+        return Ok();
+    }
+    
+    [HttpGet("hotel/{id}")]
+    public async Task<IActionResult> Hotel([FromRoute] int id)
+    {
+        var rooms = await _roomRepository.GetByHotelId(id);
+        return Ok(rooms);
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("room/{id}")]
     public async Task<IActionResult> Room([FromRoute] int id)
     {
-        var hotel = await _roomRepository.Get(id);
-        return Ok(hotel);
+        var room = await _roomRepository.Get(id);
+        return Ok(room);
     }
 
     [HttpPost]
@@ -39,8 +60,8 @@ public class RoomController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> Remove([FromRoute] int id)
     {
-        var hotel = await _roomRepository.Get(id);
-        await _roomRepository.Delete(hotel);
+        var room = await _roomRepository.Get(id);
+        await _roomRepository.Delete(room);
         return Ok();
     }
 }
