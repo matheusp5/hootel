@@ -2,16 +2,19 @@
 using Microsoft.AspNetCore.Mvc;
 using Hootel.Client.Models;
 using Hootel.Client.Services.Interfaces;
+using Hootel.Client.ViewModel;
 
 namespace Hootel.Client.Controllers;
 
 public class HomeController : Controller
 {
+    private readonly IRoomService _roomService;
     private readonly IHotelService _hotelService;
 
-    public HomeController(IHotelService hotelService)
+    public HomeController(IHotelService hotelService, IRoomService roomService)
     {
         _hotelService = hotelService;
+        _roomService = roomService;
     }
 
     public async Task<IActionResult> Index()
@@ -24,7 +27,12 @@ public class HomeController : Controller
     public async Task<IActionResult> Hotel([FromRoute] int id)
     {
         var hotel = await this._hotelService.GetHotel(id);
-        return View(hotel);
+        var availableRooms = await this._roomService.GetRoomsByHotel(id);
+        return View(new HomeHotelViewModel()
+        {
+            Hotel = hotel,
+            AvailableRooms = availableRooms
+        });
     }
     
     /*

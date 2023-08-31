@@ -1,9 +1,9 @@
-﻿@model Hootel.Models.Hotel
+﻿@model Hootel.Client.ViewModel.HomeHotelViewModel
 
 @{
-    ViewData["Title"] = Model.Name;
+    ViewData["Title"] = Model.Hotel.Name;
 }
 
-<h1 class="display-4 mb-3">Ótima escolha! @Model.Name</h1>
-<p>@Model.Description</p>
-<p>Tenha em mente que esse hotel fica localizado em @Model.Address, @Model.City, @Model.State</p>
+<h1 class="display-4 mb-3">Ótima escolha! @Model.Hotel.Name</h1>
+<p>@Model.Hotel.Description</p>
+<p>Tenha em mente que esse hotel fica localizado em @Model.Hotel.Address, @Model.Hotel.City, @Model.Hotel.State</p>
