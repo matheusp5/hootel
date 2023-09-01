@@ -31,10 +31,11 @@ public class ReservationRepository : IReservationRepository
         return await _database.Reservations.FirstOrDefaultAsync(r => r.Id == id);
     }
 
-    public async Task Save(Reservation reservation)
-    {
-        await _database.Reservations.AddAsync(reservation);
+    public async Task<Reservation> Save(Reservation reservation)
+    { 
+        var reservationAtDatabase = await _database.Reservations.AddAsync(reservation);
         await _database.SaveChangesAsync();
+        return reservationAtDatabase.Entity;
     }
 
     public async Task Delete(Reservation reservation)

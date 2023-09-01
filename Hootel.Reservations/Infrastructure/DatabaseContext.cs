@@ -21,7 +21,6 @@ public class DatabaseContext : DbContext
         {
             if (string.IsNullOrEmpty(entity.ReservationCode))
             {
-                // Gera um código aleatório de 6 caracteres
                 entity.ReservationCode = GenerateReservationCode.Generate();
             }
         }

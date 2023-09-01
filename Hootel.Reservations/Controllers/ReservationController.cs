@@ -40,8 +40,8 @@ public class ReservationController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Add([FromBody] Reservation reservation)
     {
-        await _reservationRepository.Save(reservation);
-        return StatusCode(201);
+        var reservationAtDatabase = await _reservationRepository.Save(reservation);
+        return StatusCode(201, reservationAtDatabase);
     }
 
     [HttpDelete("{id}")]
