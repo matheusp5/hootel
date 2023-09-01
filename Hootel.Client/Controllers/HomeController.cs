@@ -21,7 +21,7 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Index()
     {
-        var hotels = await this._hotelService.GetAllHotels(5);
+        List<Hotel> hotels = await this._hotelService.GetAllHotels(5);
         return View(hotels);
     }
 

@@ -19,11 +19,11 @@ public class HotelController : Controller
     }
     
     [HttpGet("hotel/{id}")]
-    public async Task<IActionResult> ViewHotel([FromRoute] int id)
+    public async Task<IActionResult> Hotel([FromRoute] int id)
     {
         var hotel = await this._hotelService.GetHotel(id);
         var availableRooms = await this._roomService.GetRoomsByHotel(id);
-        return View(new HomeHotelViewModel()
+        return View(new ViewHotelViewModel()
         {
             Hotel = hotel,
             AvailableRooms = availableRooms

@@ -1,4 +1,6 @@
-﻿@model List<Hootel.Models.Hotel>
+﻿@using Hootel.Models
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model List<Hotel>
 
 @{
     ViewData["Title"] = "Home";
@@ -34,7 +36,7 @@
     Faça a melhor escolha!
 </h2>
 <div class="my-5 d-flex gap-3">
-    @foreach (var hotel in Model)
+    @foreach (Hotel hotel in Model)
     {
         <div class="card w-25">
             <div class="card-body p-2">
@@ -45,7 +47,7 @@
                     @hotel.Description.Substring(0, Math.Min(hotel.Description.Length, 10))...<br/>
                 </p>
                 <p>@hotel.City, @hotel.State</p>
-                <a asp-controller="Hotel" asp-action="ViewHotel" asp-route-id="@hotel.Id">Visualizar detalhes</a>
+                <a asp-controller="Hotel" asp-action="Hotel" asp-route-id="@hotel.Id">Visualizar detalhes</a>
             </div>
         </div>
     }

@@ -2,7 +2,6 @@
 using Hootel.Client.Services.Interfaces;
 using Hootel.Client.ViewModel;
 using Hootel.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hootel.Client.Controllers;
@@ -21,11 +20,11 @@ public class ReservationController : Controller
     }
 
     [HttpPost("reserva")]
-    public async Task<IActionResult> Reservation(string rId)
+    public async Task<IActionResult> ReserveForm(string rId)
     {
         var room = await _roomService.GetRoom(int.Parse(rId));
         var hotel = await _hotelService.GetHotel(room.HotelId);
-        return View(new HotelRoomViewModel()
+        return View(new ReservationFormViewModel()
         {
             Room = room,
             Hotel = hotel

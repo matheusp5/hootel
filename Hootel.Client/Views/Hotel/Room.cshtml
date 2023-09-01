@@ -39,7 +39,7 @@ else
     }
 }
 
-<form method="POST" asp-controller="Reservation" asp-action="Reservation">
+<form method="POST" asp-controller="Reservation" asp-action="ReserveForm">
     <button type="submit" class="btn btn-primary mt-2">Quero esse quarto!</button>
     <input type="hidden" name="rId" value="@Model.Room.Id" />
 </form>
@@ -50,6 +50,6 @@ else
     @Model.Hotel.Description
 </p>
 <p>Esse hotel fica localizado em @Model.Hotel.Address, @Model.Hotel.City, @Model.Hotel.State</p>
-<a asp-action="ViewHotel" asp-route-id="@Model.Hotel.Id">Ver hotel</a>
+<a asp-action="Hotel" asp-route-id="@Model.Hotel.Id">Ver hotel</a>
 
 
