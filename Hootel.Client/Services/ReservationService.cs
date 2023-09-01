@@ -26,6 +26,12 @@ public class ReservationService : IReservationService
         return await response.Content.ReadFromJsonAsync<Reservation>();
     }
 
+    public async Task<List<Reservation>> GetByUserId(string id)
+    {
+        var response = await _httpClient.GetAsync($"api/reservations/user/{id}");
+        return await response.Content.ReadFromJsonAsync<List<Reservation>>();
+    }
+
     public async Task<Reservation> GetReservation(int r)
     {
         var response = await _httpClient.GetAsync($"api/reservations/{r}");

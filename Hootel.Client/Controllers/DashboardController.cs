@@ -7,15 +7,11 @@ namespace Hootel.Client.Controllers;
 
 public class DashboardController : Controller
 {
-    private readonly IHotelService _hotelService;
     private readonly IReservationService _reservationService;
-    private readonly IRoomService _roomService;
     
-    public DashboardController(IHotelService hotelService, IReservationService reservationService, IRoomService roomService)
+    public DashboardController(IReservationService reservationService)
     {
-        _hotelService = hotelService;
         _reservationService = reservationService;
-        _roomService = roomService;
     }
 
     [HttpGet("dashboard")]
@@ -25,7 +21,8 @@ public class DashboardController : Controller
         {
             return View("Admin");
         }
-        
-        return View("Client");
+
+        var reservations = await _reservationService.GetByUserId(User.Claims.FirstOrDefault(x => x.Type == "id").Value);
+        return View("Client", reservations);
     }
 }

@@ -22,7 +22,7 @@ public class HotelController : Controller
     public async Task<IActionResult> Hotel([FromRoute] int id)
     {
         var hotel = await this._hotelService.GetHotel(id);
-        var availableRooms = await this._roomService.GetRoomsByHotel(id);
+        var availableRooms = await _roomService.GetRoomsByHotel(id);
         return View(new ViewHotelViewModel()
         {
             Hotel = hotel,
