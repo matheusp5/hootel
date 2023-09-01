@@ -36,16 +36,17 @@ public class ReservationController : Controller
     [HttpPost("reservado")]
     public async Task<IActionResult> Reserved(ReservationDTO dto)
     {
-        int days = (dto.CheckIn - dto.CheckOut).Days;
+        int days = (dto.CheckOut - dto.CheckIn).Days;
         Room room = await _roomService.GetRoom(int.Parse(dto.RoomId));
         List<Room> availableRooms = await _roomService.GetAvailableRooms(dto.CheckIn, dto.CheckOut);
         
         
-        if(availableRooms.Contains(room))
+        if(!availableRooms.Contains(room))
         {   
             ViewBag.Available = true;
             var reservation = await _reservationService.CreateReservation(new Reservation()
             {
+                ReservationCode = "d",
                 ChekIn = dto.CheckIn,
                 CheckOut = dto.CheckOut,
                 Total = room.DailyPrice * days,

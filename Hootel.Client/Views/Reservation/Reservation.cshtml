@@ -10,13 +10,35 @@
 </h1>
 <div class="container mt-4">
     <form id="reservation-form" asp-controller="Reservation" asp-action="Reserved">
-        <input type="hidden" asp-for="DTO.RoomId" value="@Model.Room.Id" >
+        <input type="hidden" asp-for="DTO.RoomId" value="@Model.Room.Id">
+
+
         <div class="form-group mb-4">
-            <label for="checkin">Data de Check-in</label>
+            <label for="checkin">Seu nome</label>
+            <input asp-for="DTO.ClientName" type="text" class="form-control" id="name" required placeholder="Seu nome completo">
+        </div>
+
+        <div class="form-group mb-4">
+            <label for="checkin">Seu endereço</label>
+            <input asp-for="DTO.ClientAddress" type="text" class="form-control" id="address" required placeholder="Seu endereço">
+        </div>
+
+        <div class="form-group mb-4">
+            <label for="checkin">Cidade</label>
+            <input asp-for="DTO.ClientCity" type="text" class="form-control" id="address" required placeholder="Sua cidade">
+        </div>
+        
+        <div class="form-group mb-4">
+            <label for="checkin">Estado</label>
+            <input asp-for="DTO.ClientState" type="text" class="form-control" id="checkin" required placeholder="Seu estado">
+        </div>
+        
+        <div class="form-group mb-4">
+            <label for="checkin">Data de check-in</label>
             <input asp-for="DTO.CheckIn" type="date" class="form-control" id="checkin" required>
         </div>
         <div class="form-group mb-4">
-            <label for="checkout">Data de check-out:</label>
+            <label for="checkout">Data de check-out</label>
             <input asp-for="DTO.CheckOut" type="date" class="form-control" id="checkout" required>
         </div>
         <div class="card mb-4">

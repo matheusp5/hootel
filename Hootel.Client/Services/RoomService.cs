@@ -32,10 +32,10 @@ public class RoomService : IRoomService
 
     public async Task<List<Room>> GetAvailableRooms(DateTime CheckIn, DateTime CheckOut)
     {
-        var response = await _httpClient.PostAsJsonAsync("api/rooms", new
+        var response = await _httpClient.PostAsJsonAsync("api/rooms/reserved", new
         {
-            CheckIn,
-            CheckOut
+            checkIn = CheckIn,
+            checkOut = CheckOut
         });
         return await response.Content.ReadFromJsonAsync<List<Room>>();
     }
