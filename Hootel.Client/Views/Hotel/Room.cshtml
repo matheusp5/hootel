@@ -26,6 +26,7 @@
 
 
 <form asp-controller="Reservation" asp-action="Reservation">
+    <input type="hidden" name="_rId" value="@Model.Room.Id" >
     <button type="submit" class="btn btn-primary mt-2">Quero esse quarto!</button>
 </form>
 

@@ -17,9 +17,9 @@ public class ReservationController : Controller
     }
 
     [HttpPost("reserva")]
-    public async Task<IActionResult> Reservation([FromBody] int rId)
+    public async Task<IActionResult> Reservation([FromBody] int _rId)
     {
-        var room = await _roomService.GetRoom(rId);
+        var room = await _roomService.GetRoom(_rId);
         var hotel = await _hotelService.GetHotel(room.HotelId);
         return View(new HotelRoomViewModel()
         {
