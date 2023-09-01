@@ -83,7 +83,8 @@ public class AuthController : Controller
             {
                 await this._userManager.AddClaimsAsync(user, new[]
                 {
-                    new Claim("email", dto.Email)
+                    new Claim("email", dto.Email),
+                    new Claim("id", user.Id),
                 });
             }
 
