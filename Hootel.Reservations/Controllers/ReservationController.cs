@@ -38,8 +38,22 @@ public class ReservationController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Add([FromBody] Reservation reservation)
+    public async Task<IActionResult> Add([FromBody] CreateReservationDTO dto)
     {
+        var reservation = new Reservation()
+        {
+            ReservationCode = "",
+            CheckIn = dto.CheckIn,
+            CheckOut = dto.CheckIn,
+            Total = dto.Total,
+            ClientName = dto.ClientName,
+            ClientAddress = dto.ClientAddress,
+            ClientCity = dto.ClientCity,
+            ClientState = dto.ClientState,
+            ApplicationUser = dto.ApplicationUser,
+            HotelId = dto.HotelId,
+            RoomId = dto.RoomId,
+        };
         var reservationAtDatabase = await _reservationRepository.Save(reservation);
         return StatusCode(201, reservationAtDatabase);
     }

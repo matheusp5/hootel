@@ -10,23 +10,5 @@ public class DatabaseContext : DbContext
     {
     }
 
-    public override int SaveChanges()
-    {
-        var entitiesWithCode = ChangeTracker.Entries()
-            .Where(entry => entry.Entity is Reservation &&
-                            (entry.State == EntityState.Added || entry.State == EntityState.Modified))
-            .Select(entry => entry.Entity as Reservation);
-
-        foreach (var entity in entitiesWithCode)
-        {
-            if (string.IsNullOrEmpty(entity.ReservationCode))
-            {
-                entity.ReservationCode = GenerateReservationCode.Generate();
-            }
-        }
-
-        return base.SaveChanges();
-    }
-
     public DbSet<Reservation> Reservations { get; set; }
 }
