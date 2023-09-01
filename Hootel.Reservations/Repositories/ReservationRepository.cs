@@ -22,7 +22,7 @@ public class ReservationRepository : IReservationRepository
 
     public async Task<List<int>> ReservedRooms(DateTime checkIn, DateTime checkOut)
     {
-        return await _database.Reservations.Where(r => r.ChekIn < checkOut && r.CheckOut > checkIn)
+        return await _database.Reservations.Where(r => r.CheckIn < checkOut && r.CheckOut > checkIn)
             .Select(r => r.RoomId)
             .ToListAsync();
     }

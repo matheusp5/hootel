@@ -3,7 +3,7 @@
 public class Reservation : BaseModel
 {
     public string ReservationCode { get; set; }
-    public DateTime ChekIn { get; set; }
+    public DateTime CheckIn { get; set; }
     public DateTime CheckOut { get; set; }
     public decimal Total { get; set; }
     public string ClientName { get; set; }

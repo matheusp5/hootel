@@ -29,7 +29,7 @@
         <tr>
             <th scope="row">@reservation.Id</th>
             <td>@reservation.ReservationCode</td>
-            <td>@reservation.ChekIn.ToString("dd/MM/yyyy")</td>
+            <td>@reservation.CheckIn.ToString("dd/MM/yyyy")</td>
             <td>@reservation.CheckOut.ToString("dd/MM/yyyy")</td>
             <td>R$ @reservation.Total.ToString("F1")</td>
             <td><a asp-controller="Hotel" asp-action="Room" asp-route-id="@reservation.RoomId">Ver</a></td>

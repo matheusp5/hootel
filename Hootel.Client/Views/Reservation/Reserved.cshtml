@@ -26,7 +26,7 @@
         O hotel selecionado foi o @Model.Hotel.Name, que fica localizado em @Model.Hotel.Address, @Model.Hotel.City, @Model.Hotel.State.
     </p>
     <p>
-        Durante os dias @Model.Reservation.ChekIn.ToString("dd/MM/yyyy") e @Model.Reservation.CheckOut.ToString("dd/MM/yyyy") (@((Model.Reservation.CheckOut - Model.Reservation.ChekIn).Days) dias).
+        Durante os dias @Model.Reservation.CheckIn.ToString("dd/MM/yyyy") e @Model.Reservation.CheckOut.ToString("dd/MM/yyyy") (@((Model.Reservation.CheckOut - Model.Reservation.CheckIn).Days) dias).
     </p>
     <p>
         Sendo o total de R$ @Model.Reservation.Total (Preço diário: R$ @Model.Room.DailyPrice.ToString("N1")).

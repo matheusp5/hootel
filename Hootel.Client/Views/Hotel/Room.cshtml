@@ -34,7 +34,7 @@ else
     @foreach (var reservation in Model.Reservations)
     {
         <p>
-            Reservado para os dias entre @reservation.ChekIn.ToString("dd/MM/yyyy") e @reservation.CheckOut.ToString("dd/MM/yyyy").
+            Reservado para os dias entre @reservation.CheckIn.ToString("dd/MM/yyyy") e @reservation.CheckOut.ToString("dd/MM/yyyy").
         </p>
     }
 }

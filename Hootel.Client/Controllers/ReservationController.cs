@@ -47,7 +47,7 @@ public class ReservationController : Controller
             var reservation = await _reservationService.CreateReservation(new Reservation()
             {
                 ReservationCode = "d",
-                ChekIn = dto.CheckIn,
+                CheckIn = dto.CheckIn,
                 CheckOut = dto.CheckOut,
                 Total = room.DailyPrice * days,
                 ClientAddress = dto.ClientAddress,
