@@ -25,7 +25,7 @@ public class DashboardController : Controller
         {
             return View("Admin");
         }
-
+        
         return View("Client");
     }
 }

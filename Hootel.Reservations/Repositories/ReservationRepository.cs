@@ -32,6 +32,11 @@ public class ReservationRepository : IReservationRepository
         return await _database.Reservations.FirstOrDefaultAsync(r => r.Id == id);
     }
 
+    public async Task<List<Reservation>> GetByUserId(string id)
+    {
+        return await _database.Reservations.Where(r => r.ApplicationUser == id).ToListAsync();
+    }
+
     public async Task<Reservation> Save(Reservation reservation)
     {
         reservation.ReservationCode = GenerateReservationCode.Generate();

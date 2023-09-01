@@ -36,6 +36,14 @@ public class ReservationController : ControllerBase
         var reservation = await _reservationRepository.Get(id);
         return Ok(reservation);
     }
+    
+    [HttpGet("user/{id}")]
+    public async Task<IActionResult> Hotel([FromRoute] string id)
+    {
+        var reservation = await _reservationRepository.GetByUserId(id);
+        return Ok(reservation);
+    }
+
 
     [HttpPost]
     public async Task<IActionResult> Add([FromBody] CreateReservationDTO dto)
