@@ -13,7 +13,7 @@
 
 @if (ViewBag.Available)
 {
-    <h1>Sucesso</h1>
+    <h1 class="mt-5">Sucesso</h1>
     <h2>O quarto está reservado! </h2>
     <h3>Informações sobre a reserva</h3>
     <p>
@@ -35,12 +35,15 @@
         Informações sobre o cliente
     </h3>
     <p>
-        O seu nome é @Model.Reservation.ClientName, você mora em @Model.Reservation.ClientAddress, @Model.Reservation.ClientCity, @Model.Reservation.ClientState.
+        O seu nome é @Model.Reservation.ClientName
+    </p>
+    <p>
+        Você mora em @Model.Reservation.ClientAddress, @Model.Reservation.ClientCity, @Model.Reservation.ClientState.
     </p>
 }
 else
 {
-    <h1>
+    <h1 class="mt-5">
         Ops....
     </h1>
     <h2 class="mt-3">
