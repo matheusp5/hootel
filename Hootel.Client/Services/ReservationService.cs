@@ -20,9 +20,10 @@ public class ReservationService : IReservationService
         return await response.Content.ReadFromJsonAsync<List<Reservation>>();
     }
 
-    public async Task CreateReservation(Reservation reservation)
+    public async Task<Reservation> CreateReservation(Reservation reservation)
     {
-        await _httpClient.PostAsJsonAsync("api/reservations", reservation);
+        var response = await _httpClient.PostAsJsonAsync("api/reservations", reservation);
+        return await response.Content.ReadFromJsonAsync<Reservation>();
     }
 
     public async Task<Reservation> GetReservation(int r)

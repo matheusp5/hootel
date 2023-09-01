@@ -40,11 +40,11 @@ public class ReservationController : Controller
         Room room = await _roomService.GetRoom(int.Parse(dto.RoomId));
         List<Room> availableRooms = await _roomService.GetAvailableRooms(dto.CheckIn, dto.CheckOut);
         
-        ViewBag.Available = false;
+        
         if(availableRooms.Contains(room))
         {   
             ViewBag.Available = true;
-            await _reservationService.CreateReservation(new Reservation()
+            var reservation = await _reservationService.CreateReservation(new Reservation()
             {
                 ChekIn = dto.CheckIn,
                 CheckOut = dto.CheckOut,
@@ -53,15 +53,18 @@ public class ReservationController : Controller
                 ClientCity = dto.ClientCity,
                 ClientName = dto.ClientName,
                 ClientState = dto.ClientState,
-                ApplicationUser =  User.Claims.FirstOrDefault(x => x.Type == "id").Value,
+                ApplicationUser = User.Claims.FirstOrDefault(x => x.Type == "id").Value,
                 RoomId = room.Id
             });
+            return View(new ReservationReservedViewModel()
+            {
+                Room = room,
+                Hotel = await _hotelService.GetHotel(room.HotelId),
+                Reservation = reservation
+            });
         }
-        
-        return View(new HotelRoomViewModel()
-        {
-            Room = room,
-            Hotel = await _hotelService.GetHotel(room.HotelId)
-        });
+
+        ViewBag.Available = false;
+        return View();
     }
 }
