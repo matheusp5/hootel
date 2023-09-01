@@ -24,7 +24,10 @@
 
 <h4>Preço diário: R$ @Model.Room.DailyPrice.ToString().Replace(".", ",")</h4>
 
-<a class="btn btn-primary mt-2">Quero esse quarto!</a>
+
+<form asp-controller="Reservation" asp-action="Reservation">
+    <button type="submit" class="btn btn-primary mt-2">Quero esse quarto!</button>
+</form>
 
 <h2 class="mt-4 mb-2">Sobre o hotel</h2>
 
