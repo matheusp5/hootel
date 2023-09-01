@@ -16,16 +16,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\windows\RiderProjects\Hootel\Hootel.Client
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/windows/RiderProjects/Hootel/Hootel.Client/Views/AdminHotel/EditHotels.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Ib3RlbFxFZGl0SG90ZWxzLmNzaHRtbA==
+[C:/Users/windows/RiderProjects/Hootel/Hootel.Client/Views/Admin/ManageHotels.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlSG90ZWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/windows/RiderProjects/Hootel/Hootel.Client/Views/AdminHotel/EditReservations.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Ib3RlbFxFZGl0UmVzZXJ2YXRpb25zLmNzaHRtbA==
+[C:/Users/windows/RiderProjects/Hootel/Hootel.Client/Views/Admin/ManageReservations.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlUmVzZXJ2YXRpb25zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/windows/RiderProjects/Hootel/Hootel.Client/Views/AdminHotel/EditRooms.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Ib3RlbFxFZGl0Um9vbXMuY3NodG1s
+[C:/Users/windows/RiderProjects/Hootel/Hootel.Client/Views/Admin/ManageRooms.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlUm9vbXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/windows/RiderProjects/Hootel/Hootel.Client/Views/Auth/Login.cshtml]
@@ -52,20 +52,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWFyY2guY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/windows/RiderProjects/Hootel/Hootel.Client/Views/Hotel/Hotel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcSG90ZWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/windows/RiderProjects/Hootel/Hootel.Client/Views/Hotel/Room.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcUm9vbS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/windows/RiderProjects/Hootel/Hootel.Client/Views/Hotel/ViewHotel.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxcVmlld0hvdGVsLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/windows/RiderProjects/Hootel/Hootel.Client/Views/Reservation/Reservation.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25cUmVzZXJ2YXRpb24uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/windows/RiderProjects/Hootel/Hootel.Client/Views/Reservation/Reserved.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25cUmVzZXJ2ZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/windows/RiderProjects/Hootel/Hootel.Client/Views/Reservation/ReserveForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXRpb25cUmVzZXJ2ZUZvcm0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/windows/RiderProjects/Hootel/Hootel.Client/Views/Shared/Error.cshtml]

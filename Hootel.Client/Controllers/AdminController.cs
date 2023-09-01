@@ -1,5 +1,6 @@
 ﻿using Hootel.Client.Models;
 using Hootel.Client.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hootel.Client.Controllers.Admin;
@@ -17,6 +18,7 @@ public class AdminController : Controller
         _reservationService = reservationService;
     }
 
+    [Authorize(Roles = "admin")]
     [HttpGet("admin/hotels")]
     public async Task<IActionResult> ManageHotels()
     {
@@ -25,6 +27,7 @@ public class AdminController : Controller
     }
     
     
+    [Authorize(Roles = "admin")]
     [HttpGet("admin/rooms")]
     public async Task<IActionResult> ManageRooms()
     {
@@ -44,6 +47,7 @@ public class AdminController : Controller
         return View(hotelRooms);
     }
     
+    [Authorize(Roles = "admin")]
     [HttpGet("admin/reservations")]
     public async Task<IActionResult> ManageReservations()
     {

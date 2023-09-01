@@ -26,7 +26,7 @@ public class AuthController : Controller
         return View();
     }
     
-    [HttpGet("register")]
+    [HttpGet("registro")]
     public IActionResult Register()
     {
         return View();

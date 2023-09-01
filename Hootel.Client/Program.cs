@@ -15,6 +15,15 @@ builder.Services.AddDbContext<DatabaseContext>(opt =>
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<DatabaseContext>()
     .AddDefaultTokenProviders();
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Cookie.Name = "hootel";
+
+    options.LoginPath = "/login";
+    options.LogoutPath = "/logout";
+    options.AccessDeniedPath = "/login";
+});
 builder.Services.AddHttpClient();
 
 builder.Services.AddScoped<IRoomService, RoomService>();

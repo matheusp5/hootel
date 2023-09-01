@@ -1,6 +1,7 @@
 ﻿using Hootel.Client.Models;
 using Hootel.Client.Services.Interfaces;
 using Hootel.Client.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hootel.Client.Controllers;
@@ -14,6 +15,7 @@ public class DashboardController : Controller
         _reservationService = reservationService;
     }
 
+    [Authorize]
     [HttpGet("dashboard")]
     public async Task<IActionResult> Dashboard()
     {

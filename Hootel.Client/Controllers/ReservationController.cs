@@ -2,6 +2,7 @@
 using Hootel.Client.Services.Interfaces;
 using Hootel.Client.ViewModel;
 using Hootel.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hootel.Client.Controllers;
@@ -18,7 +19,9 @@ public class ReservationController : Controller
         _hotelService = hotelService;
         _reservationService = reservationService;
     }
-
+    
+    
+    [Authorize]
     [HttpPost("reserva")]
     public async Task<IActionResult> ReserveForm(string rId)
     {
@@ -31,7 +34,7 @@ public class ReservationController : Controller
         });
     }
 
-
+    [Authorize]
     [HttpPost("reservado")]
     public async Task<IActionResult> Reserved(ReservationDTO dto)
     {
