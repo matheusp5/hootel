@@ -36,8 +36,8 @@ public class HotelController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Add([FromBody] Hotel hotel)
     {
-        await _hotelRepository.Save(hotel);
-        return StatusCode(201);
+        var hotelAtDatabase = await _hotelRepository.Save(hotel);
+        return StatusCode(201, hotelAtDatabase);
     }
 
     [HttpDelete("{id}")]

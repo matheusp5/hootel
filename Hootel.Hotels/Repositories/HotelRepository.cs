@@ -29,10 +29,11 @@ public class HotelRepository : IHotelRepository
         return await _database.Hotels.FirstOrDefaultAsync(h => h.Id == id);
     }
 
-    public async Task Save(Hotel hotel)
+    public async Task<Hotel> Save(Hotel hotel)
     {
-        await _database.Hotels.AddAsync(hotel);
+        var hotelAtDatabase = await _database.Hotels.AddAsync(hotel);
         await _database.SaveChangesAsync();
+        return hotelAtDatabase.Entity;
     }
 
     public async Task Delete(Hotel hotel)
