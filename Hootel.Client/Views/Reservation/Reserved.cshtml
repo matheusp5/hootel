@@ -1,15 +1,43 @@
 ﻿@model Hootel.Client.ViewModel.ReservationReservedViewModel
 
-@{
-    ViewData["Title"] = "Sucesso";
-}
-
-
 @if (ViewBag.Available)
 {
-    
+    @(ViewData["Title"] = "Sucesso!")
+    <h1>Sucesso</h1>
+    <h2>O quarto está reservado! </h2>
+    <h3>Informações sobre a reserva</h3>
+    <p>
+        O código da sua reserva é <strong>@Model.Reservation.ReservationCode</strong>.
+    </p>
+    <p>
+        Você reservou o quarto nº @Model.Room.RoomNumber.
+    </p>
+    <p>
+        O hotel selecionado foi o @Model.Hotel.Name, que fica localizado em @Model.Hotel.Address, @Model.Hotel.City, @Model.Hotel.State.
+    </p>
+    <p>
+        Durante os dias @Model.Reservation.ChekIn.ToString("dd/MM/yyyy") e @Model.Reservation.CheckOut.ToString("dd/MM/yyyy") (@((Model.Reservation.ChekIn - Model.Reservation.CheckOut).Days) dias).
+    </p>
+    <p>
+        Sendo o total de R$ @Model.Reservation.Total (Preço diário: R$ @Model.Room.DailyPrice.ToString("N1")).
+    </p>
+    <h3>
+        Informações sobre o cliente
+    </h3>
+    <p>
+        O seu nome é @Model.Reservation.ClientName, você mora em @Model.Reservation.ClientAddress, @Model.Reservation.ClientCity, @Model.Reservation.ClientState.
+    </p>
 }
 else
 {
-    
+    @(ViewData["Title"] = "Erro!")
+    <h1>
+        Ops....
+    </h1>
+    <h2 class="mt-3">
+        O quarto selecionado não está disponível para a data planejada.
+    </h2>
+    <h4 class="mt-3">
+        <a href="/">Retornar</a>
+    </h4>
 }

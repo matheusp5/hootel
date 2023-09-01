@@ -23,7 +23,7 @@
                 <li>Quarto nº @room.RoomNumber</li>
             </ul>
             <h4>
-                R$ @room.DailyPrice.ToString().Replace(".", ",") por dia.
+                R$ @room.DailyPrice.ToString("N1") por dia.
             </h4>
             <a href="/hotel/quarto/@room.Id" class="btn btn-primary mt-1">Gostei</a>
         </div>

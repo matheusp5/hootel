@@ -23,7 +23,7 @@
             <div class="card-header">Resumo da reserva</div>
             <div class="card-body">
                 <p>Número de dias: <span id="num-days">R$ 0,00</span></p>
-                <p>Preço diário: <span id="daily-price">R$ @dailyPrice.ToString().Replace(".", ",")</span></p>
+                <p>Preço diário: <span id="daily-price">R$ @dailyPrice.ToString("N1")</span></p>
                 <p>Preço total: <span id="total-price">R$ 0,00</span></p>
                 <p>Nome do hotel: <span id="hotel-name">@Model.Hotel.Name</span></p>
                 <p>Localização: <span id="location">@Model.Hotel.Address, @Model.Hotel.City, @Model.Hotel.State</span></p>
