@@ -5,47 +5,48 @@
 }
 
 <h1 class="display-4 mb-3">Precisa de um hotel?</h1>
-<a asp-action="Search" class="mb-5">Clique aqui para escolher a melhor opção...</a>
-
+<h4>
+    <a asp-action="Search" class="mb-5">Clique aqui para escolher a melhor opção...</a>
+</h4>
 <div id="carouselExample" class="carousel slide mt-3">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://images3.alphacoders.com/101/thumbbig-101917.webp" class="d-block w-100" alt="...">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://images3.alphacoders.com/101/thumbbig-101917.webp" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://images.alphacoders.com/462/thumbbig-462267.webp" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://images7.alphacoders.com/463/thumbbig-463342.webp" class="d-block w-100" alt="...">
+        </div>
     </div>
-    <div class="carousel-item">
-      <img src="https://images.alphacoders.com/462/thumbbig-462267.webp" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://images7.alphacoders.com/463/thumbbig-463342.webp" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
 
 <h2 class="mt-5 display-5">
-  Faça a melhor escolha!
+    Faça a melhor escolha!
 </h2>
-<div class="my-5 d-flex justify-content-around gap-3">
+<div class="my-5 d-flex gap-3">
     @foreach (var hotel in Model)
     {
-      <div class="card w-25">
-        <div class="card-body p-2">
-          <h4>
-            @hotel.Name
-          </h4>
-          <p>
-            @hotel.Description.Substring(0, Math.Min(hotel.Description.Length, 10))...<br/>
-          </p>
-          <p>@hotel.City, @hotel.State</p>
-          <a href="/hotel/@hotel.Id">Visualizar detalhes</a>
+        <div class="card w-25">
+            <div class="card-body p-2">
+                <h4>
+                    @hotel.Name
+                </h4>
+                <p>
+                    @hotel.Description.Substring(0, Math.Min(hotel.Description.Length, 10))...<br/>
+                </p>
+                <p>@hotel.City, @hotel.State</p>
+                <a asp-controller="Hotel" asp-action="ViewHotel" asp-route-id="@hotel.Id">Visualizar detalhes</a>
+            </div>
         </div>
-      </div>
     }
 </div>

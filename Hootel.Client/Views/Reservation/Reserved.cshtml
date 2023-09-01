@@ -14,7 +14,7 @@
 @if (ViewBag.Available)
 {
     <h1 class="mt-5">Sucesso</h1>
-    <h2>O quarto está reservado! </h2>
+    <h2 class="mb-4">O quarto está reservado! </h2>
     <h3>Informações sobre a reserva</h3>
     <p>
         O código da sua reserva é <strong>@Model.Reservation.ReservationCode</strong>.
@@ -31,7 +31,7 @@
     <p>
         Sendo o total de R$ @Model.Reservation.Total (Preço diário: R$ @Model.Room.DailyPrice.ToString("N1")).
     </p>
-    <h3>
+    <h3 class="mt-4">
         Informações sobre o cliente
     </h3>
     <p>

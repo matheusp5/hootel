@@ -4,27 +4,29 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Hootel.Client.Controllers.Admin;
 
-public class AdminHotelController : Controller
+public class AdminController : Controller
 {
     private readonly IHotelService _hotelService;
     private readonly IRoomService _roomService;
     private readonly IReservationService _reservationService;
 
-    public AdminHotelController(IHotelService hotelService, IRoomService roomService, IReservationService reservationService)
+    public AdminController(IHotelService hotelService, IRoomService roomService, IReservationService reservationService)
     {
         _hotelService = hotelService;
         _roomService = roomService;
         _reservationService = reservationService;
     }
 
-    public async Task<IActionResult> EditHotels()
+    [HttpGet("admin/hotels")]
+    public async Task<IActionResult> ManageHotels()
     {
         var hotels = await _hotelService.GetAllHotels();
         return View(hotels);
     }
     
     
-    public async Task<IActionResult> EditRooms()
+    [HttpGet("admin/rooms")]
+    public async Task<IActionResult> ManageRooms()
     {
         var hotels = await _hotelService.GetAllHotels();
         var rooms = await _roomService.GetAllRooms();
@@ -42,7 +44,8 @@ public class AdminHotelController : Controller
         return View(hotelRooms);
     }
     
-    public async Task<IActionResult> EditReservations()
+    [HttpGet("admin/reservations")]
+    public async Task<IActionResult> ManageReservations()
     {
         var reservations = await _reservationService.GetAllReservations();
         return View(reservations);

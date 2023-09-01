@@ -24,7 +24,7 @@
 
 <h4>Preço diário: R$ @Model.Room.DailyPrice.ToString().Replace(".", ",")</h4>
 
-<h5>Reservas</h5>
+<h4>Reservas</h4>
 @if (Model.Reservations.Count == 0)
 {
     <h6>Esse quarto não possui nenhuma reserva ativa.</h6>
@@ -39,7 +39,6 @@ else
     }
 }
 
-
 <form method="POST" asp-controller="Reservation" asp-action="Reservation">
     <button type="submit" class="btn btn-primary mt-2">Quero esse quarto!</button>
     <input type="hidden" name="rId" value="@Model.Room.Id" />
@@ -52,3 +51,5 @@ else
 </p>
 <p>Esse hotel fica localizado em @Model.Hotel.Address, @Model.Hotel.City, @Model.Hotel.State</p>
 <a asp-action="ViewHotel" asp-route-id="@Model.Hotel.Id">Ver hotel</a>
+
+
