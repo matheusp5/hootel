@@ -25,8 +25,8 @@ public class AdminController : Controller
         var hotels = await _hotelService.GetAllHotels();
         return View(hotels);
     }
-    
-    
+
+
     [Authorize(Roles = "admin")]
     [HttpGet("admin/rooms")]
     public async Task<IActionResult> ManageRooms()
@@ -44,14 +44,60 @@ public class AdminController : Controller
             };
             hotelRooms.Add(hotelRoom);
         }
+
         return View(hotelRooms);
     }
-    
+
     [Authorize(Roles = "admin")]
     [HttpGet("admin/reservations")]
     public async Task<IActionResult> ManageReservations()
     {
         var reservations = await _reservationService.GetAllReservations();
         return View(reservations);
+    }
+
+    [Authorize]
+    [HttpPost("delete/reservation")]
+    public async Task<IActionResult> DeleteReservation(string id)
+    {
+        var reservation = await _reservationService.GetReservation(int.Parse(id));
+        var isAdmin = User.IsInRole("admin");
+        var isOwner = reservation.ApplicationUser == User.Claims.FirstOrDefault(x => x.Type == "id").Value;
+
+        if (isAdmin || isOwner)
+        {
+            await _reservationService.DeleteReservation(int.Parse(id));
+            return RedirectToAction("Dashboard", "Dashboard");
+        }
+
+        return RedirectToAction("Login", "Auth");
+    }
+    
+    [Authorize]
+    [HttpPost("delete/hotel")]
+    public async Task<IActionResult> DeleteHotel(string id)
+    {
+        var hotel = await _reservationService.GetReservation(int.Parse(id));
+        if (User.IsInRole("admin"))
+        {
+            await _hotelService.DeleteHotel(int.Parse(id));
+            return RedirectToAction("Dashboard", "Dashboard");
+        }
+
+        return RedirectToAction("Login", "Auth");
+    }
+    
+    [Authorize]
+    [HttpPost("delete/room")]
+    public async Task<IActionResult> DeleteRoom(string id)
+    {
+        var hotel = await _reservationService.GetReservation(int.Parse(id));
+        if (User.IsInRole("admin"))
+        {
+            await _roomService.DeleteRoom(int.Parse(id));
+            return RedirectToAction("Dashboard", "Dashboard");
+        }
+
+        return RedirectToAction("Login", "Auth");
     }
 }

@@ -37,8 +37,8 @@
             <td>@reservation.ClientName</td>
             <td>@reservation.ClientAddress, @reservation.ClientCity, @reservation.ClientState</td>
             <td>
-                <form>
-                    <input type="hidden" name="hId" value="@reservation.Id" >
+                <form method="POST" asp-action="DeleteReservation">
+                    <input type="hidden" name="id" value="@reservation.Id" >
                     <button type="submit" class="btn btn-link">Excluir</button>
                 </form>
             </td>

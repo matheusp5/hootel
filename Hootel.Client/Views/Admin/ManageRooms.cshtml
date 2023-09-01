@@ -33,8 +33,8 @@
             <td>@item.Room.isReserved</td>
             <td>@item.Hotel.Name (@item.Hotel.Id)</td>
             <td>
-                <form>
-                    <input type="hidden" name="hId" value="@item.Room.Id" >
+                <form method="POST" asp-action="DeleteRoom">
+                    <input type="hidden" name="id" value="@item.Room.Id" >
                     <button type="submit" class="btn btn-link">Excluir</button>
                 </form>
                 <a asp-controller="Hotel" asp-action="Room" asp-route-id="@item.Room.Id">Ver</a>  (Id @item.Hotel)

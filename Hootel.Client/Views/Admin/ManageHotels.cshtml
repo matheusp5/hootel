@@ -31,8 +31,8 @@
             <td>@hotel.City</td>
             <td>@hotel.State</td>
             <td>
-                <form>
-                    <input type="hidden" name="hId" value="@hotel.Id" >
+                <form method="POST" asp-action="DeleteHotel">
+                    <input type="hidden" name="id" value="@hotel.Id" >
                     <button type="submit" class="btn btn-link">Excluir</button>
                 </form>
                 <a asp-controller="Hotel" asp-action="Hotel" asp-route-id="@hotel.Id">Ver</a> (Id @hotel.Id)
