@@ -62,8 +62,8 @@ public class RoomController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Add([FromBody] Room room)
     {
-        await _roomRepository.Save(room);
-        return StatusCode(201);
+        var roomAtDatabase = await _roomRepository.Save(room);
+        return StatusCode(201, roomAtDatabase);
     }
 
     [HttpDelete("{id}")]

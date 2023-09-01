@@ -55,10 +55,11 @@ public class RoomRepository : IRoomRepository
         return await _database.Rooms.Where(r => r.PeopleNumber == people && !r.isReserved).ToListAsync();
     }
 
-    public async Task Save(Room room)
+    public async Task<Room> Save(Room room)
     {
-        await _database.Rooms.AddAsync(room);
+        var roomAtDatabase = await _database.Rooms.AddAsync(room);
         await _database.SaveChangesAsync();
+        return roomAtDatabase.Entity;
     }
 
     public async Task Delete(Room room)

@@ -10,6 +10,6 @@ public interface IRoomRepository
     Task<List<Room>> GetAvailableRooms(DateTime checkIn, DateTime checkOut);
     Task UpdateReservedRoom(int id);
     Task<List<Room>> ForPeople(int people);
-    Task Save(Room room);
+    Task<Room> Save(Room room);
     Task Delete(Room room);
 }
