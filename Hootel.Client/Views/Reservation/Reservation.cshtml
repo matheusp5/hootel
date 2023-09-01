@@ -30,7 +30,7 @@
         
         <div class="form-group mb-4">
             <label for="checkin">Estado</label>
-            <input asp-for="DTO.ClientState" type="text" class="form-control" id="checkin" required placeholder="Seu estado">
+            <input asp-for="DTO.ClientState" type="text" class="form-control" id="state" required placeholder="Seu estado">
         </div>
         
         <div class="form-group mb-4">
@@ -61,7 +61,6 @@
     $(document).ready(function () {
         var dailyPrice = @dailyPrice.ToString().Replace(",", ".");
         $("#num-days").text("0");
-        
 
         function updateSummary() {
             var checkin = new Date($("#checkin").val());
@@ -71,7 +70,7 @@
 
             if(totalPrice > 0 && numDays > 0) {
                 $("#num-days").text(numDays);
-                $("#total-price").text(totalPrice.toFixed(2));
+                $("#total-price").text(`R$ ${totalPrice.toFixed(2).toString().replace(".", ",")}`);
             }
         }
 

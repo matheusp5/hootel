@@ -1,0 +1,43 @@
+﻿@model List<Hootel.Models.Hotel>
+
+@{
+    ViewData["Title"] = "Hoteis";
+}
+<h1 class="mt-5">
+    Hoteis
+</h1>
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Endereço</th>
+        <th scope="col">Cidade</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var hotel in Model)
+    {
+        <tr>
+            <th scope="row">@hotel.Id</th>
+            <td>@hotel.Name</td>
+            <td>@hotel.Description</td>
+            <td>@hotel.Address</td>
+            <td>@hotel.City</td>
+            <td>@hotel.State</td>
+            <td>
+                <form>
+                    <input type="hidden" name="hId" value="@hotel.Id" >
+                    <button type="submit" class="btn btn-link">Excluir</button>
+                </form>
+                <a asp-controller="Hotel" asp-action="ViewHotel" asp-route-id="@hotel.Id">Ver</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

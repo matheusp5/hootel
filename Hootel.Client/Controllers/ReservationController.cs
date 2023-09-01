@@ -51,6 +51,7 @@ public class ReservationController : Controller
                 CheckOut = dto.CheckOut,
                 Total = room.DailyPrice * days,
                 ClientAddress = dto.ClientAddress,
+                HotelId = room.HotelId,
                 ClientCity = dto.ClientCity,
                 ClientName = dto.ClientName,
                 ClientState = dto.ClientState,

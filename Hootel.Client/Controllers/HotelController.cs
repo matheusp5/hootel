@@ -18,11 +18,11 @@ public class HotelController : Controller
         _reservationService = reservationService;
     }
     
-    [HttpGet("hotel/{h}")]
-    public async Task<IActionResult> ViewHotel([FromRoute] int h)
+    [HttpGet("hotel/{id}")]
+    public async Task<IActionResult> ViewHotel([FromRoute] int id)
     {
-        var hotel = await this._hotelService.GetHotel(h);
-        var availableRooms = await this._roomService.GetRoomsByHotel(h);
+        var hotel = await this._hotelService.GetHotel(id);
+        var availableRooms = await this._roomService.GetRoomsByHotel(id);
         return View(new HomeHotelViewModel()
         {
             Hotel = hotel,
@@ -30,12 +30,12 @@ public class HotelController : Controller
         });
     }
 
-    [HttpGet("hotel/quarto/{r}")]
-    public async Task<IActionResult> Room([FromRoute] int r)
+    [HttpGet("hotel/quarto/{id}")]
+    public async Task<IActionResult> Room([FromRoute] int id)
     {
-        var room = await _roomService.GetRoom(r);
+        var room = await _roomService.GetRoom(id);
         var hotel = await _hotelService.GetHotel(room.HotelId);
-        var reservations = (await _reservationService.GetAllReservations()).Where(x => x.RoomId == r).ToList();
+        var reservations = (await _reservationService.GetAllReservations()).Where(x => x.RoomId == id).ToList();
         return View(new HotelRoomViewModel()
         {
             Room = room,

@@ -29,8 +29,8 @@
                         <h4>
                             R$ @room.DailyPrice.ToString("N1") por dia.
                         </h4>
-                        <a href="/hotel/quarto/@room.Id" class="btn btn-primary mt-1">Gostei</a>
-                        <a href="/hotel/@room.HotelId" class="btn btn-primary mt-1">Ver hotel</a>
+                        <a asp-controller="Hotel" asp-action="Room" asp-route-id="@room.Id" class="btn btn-primary mt-1">Gostei</a>
+                        <a asp-controller="Hotel" asp-action="ViewHotel" asp-route-id="@room.HotelId" class="btn btn-primary mt-1">Ver hotel</a>
                     </div>
                 }
             </div>
@@ -70,18 +70,15 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-        // Fazer a requisição para obter a lista de estados do Brasil
         $.get("https://servicodados.ibge.gov.br/api/v1/localidades/estados", function(data) {
             const statesSelect = $("#states");
             data.forEach(state => {
                 if (state.sigla === "BR") {
-                    return; // Ignorar a opção "Brasil"
                 }
                 statesSelect.append(new Option(state.nome, state.sigla));
             });
         });
 
-        // Quando um estado é selecionado, buscar as cidades correspondentes
         $("#states").change(function() {
             const selectedState = $(this).val();
             if (selectedState) {

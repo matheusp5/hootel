@@ -1,0 +1,48 @@
+﻿@model List<Hootel.Models.Reservation>
+
+@{
+    ViewData["Title"] = "Reservas";
+}
+<h1 class="mt-5">
+    Reservas
+</h1>
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Código</th>
+        <th scope="col">Check-in</th>
+        <th scope="col">Check-out</th>
+        <th scope="col">Total</th>
+        <th scope="col">Quarto</th>
+        <th scope="col">Hotel</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">Endereço do cliente</th>
+        <th scope="col">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var reservation in Model)
+    {
+        <tr>
+            <th scope="row">@reservation.Id</th>
+            <td>@reservation.ReservationCode</td>
+            <td>@reservation.ChekIn.ToString("dd/MM/yyyy")</td>
+            <td>@reservation.CheckOut.ToString("dd/MM/yyyy")</td>
+            <td>R$ @reservation.Total.ToString("F1")</td>
+            <td><a asp-controller="Hotel" asp-action="Room" asp-route-id="@reservation.RoomId">Ver</a></td>
+            <td><a asp-controller="Hotel" asp-action="ViewHotel" asp-route-id="@reservation.RoomId">Ver</a></td>
+            <td>@reservation.ClientName</td>
+            <td>@reservation.ClientAddress, @reservation.ClientCity, @reservation.ClientState</td>
+            <td>
+                <form>
+                    <input type="hidden" name="hId" value="@reservation.Id" >
+                    <button type="submit" class="btn btn-link">Excluir</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

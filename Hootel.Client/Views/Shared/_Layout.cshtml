@@ -27,13 +27,13 @@
                         @if (User.IsInRole("admin"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Painel administrativo</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Dashboard" asp-action="Dashboard">Painel administrativo</a>
                             </li>
                         }
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Dashboard</a>
+                                <a class="nav-link text-dark" asp-area=""  asp-controller="Dashboard" asp-action="Dashboard">Dashboard</a>
                             </li>
                         }
                         
