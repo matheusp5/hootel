@@ -27,4 +27,16 @@ public class HotelController : Controller
             AvailableRooms = availableRooms
         });
     }
+
+    [HttpGet("hotel/quarto/{r}")]
+    public async Task<IActionResult> Room([FromRoute] int r)
+    {
+        var room = await _roomService.GetRoom(r);
+        var hotel = await _hotelService.GetHotel(room.HotelId);
+        return View(new HotelRoomViewModel()
+        {
+            Room = room,
+            Hotel = hotel
+        });
+    }
 }

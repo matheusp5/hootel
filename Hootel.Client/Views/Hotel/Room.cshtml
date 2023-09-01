@@ -1,0 +1,35 @@
+﻿@model Hootel.Client.ViewModel.HotelRoomViewModel
+
+@{
+    ViewData["Title"] = "Quarto";
+}
+
+
+<h1 class="mt-4 mb-4">
+    @Model.Hotel.Name
+</h1>
+
+<h2>Sobre o quarto</h2>
+
+<p>
+    @Model.Room.Description
+</p>
+
+<ul>
+    <li>Para @Model.Room.PeopleNumber pessoa(s);</li>
+    <li>@Model.Room.BathroomsNumber banheiro(s).</li>
+    <li>Quarto nº @Model.Room.RoomNumber</li>
+    
+</ul>
+
+<h4>Preço diário: R$ @Model.Room.DailyPrice.ToString().Replace(".", ",")</h4>
+
+<a class="btn btn-primary mt-2">Quero esse quarto!</a>
+
+<h2 class="mt-4 mb-2">Sobre o hotel</h2>
+
+<p>
+    @Model.Hotel.Description
+</p>
+<p>Esse hotel fica localizado em @Model.Hotel.Address, @Model.Hotel.City, @Model.Hotel.State</p>
+
