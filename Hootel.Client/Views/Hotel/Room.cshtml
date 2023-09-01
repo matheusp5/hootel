@@ -24,6 +24,21 @@
 
 <h4>Preço diário: R$ @Model.Room.DailyPrice.ToString().Replace(".", ",")</h4>
 
+<h5>Reservas</h5>
+@if (Model.Reservations.Count == 0)
+{
+    <h6>Esse quarto não possui nenhuma reserva ativa.</h6>
+}
+else
+{
+    @foreach (var reservation in Model.Reservations)
+    {
+        <p>
+            Reservado para os dias entre @reservation.ChekIn.ToString("dd/MM/yyyy") e @reservation.CheckOut.ToString("dd/MM/yyyy").
+        </p>
+    }
+}
+
 
 <form method="POST" asp-controller="Reservation" asp-action="Reservation">
     <button type="submit" class="btn btn-primary mt-2">Quero esse quarto!</button>
@@ -36,4 +51,5 @@
     @Model.Hotel.Description
 </p>
 <p>Esse hotel fica localizado em @Model.Hotel.Address, @Model.Hotel.City, @Model.Hotel.State</p>
+
 

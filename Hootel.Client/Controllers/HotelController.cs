@@ -9,11 +9,13 @@ public class HotelController : Controller
     
     private readonly IRoomService _roomService;
     private readonly IHotelService _hotelService;
-
-    public HotelController(IHotelService hotelService, IRoomService roomService)
+    private readonly IReservationService _reservationService;
+    
+    public HotelController(IHotelService hotelService, IRoomService roomService, IReservationService reservationService)
     {
         _hotelService = hotelService;
         _roomService = roomService;
+        _reservationService = reservationService;
     }
     
     [HttpGet("hotel/{h}")]
@@ -33,10 +35,12 @@ public class HotelController : Controller
     {
         var room = await _roomService.GetRoom(r);
         var hotel = await _hotelService.GetHotel(room.HotelId);
+        var reservations = (await _reservationService.GetAllReservations()).Where(x => x.RoomId == r).ToList();
         return View(new HotelRoomViewModel()
         {
             Room = room,
-            Hotel = hotel
+            Hotel = hotel,
+            Reservations = reservations
         });
     }
 }
