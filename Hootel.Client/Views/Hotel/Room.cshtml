@@ -25,9 +25,9 @@
 <h4>Preço diário: R$ @Model.Room.DailyPrice.ToString().Replace(".", ",")</h4>
 
 
-<form asp-controller="Reservation" asp-action="Reservation">
-    <input type="hidden" name="_rId" value="@Model.Room.Id" >
+<form method="POST" asp-controller="Reservation" asp-action="Reservation">
     <button type="submit" class="btn btn-primary mt-2">Quero esse quarto!</button>
+    <input type="hidden" name="rId" value="@Model.Room.Id" />
 </form>
 
 <h2 class="mt-4 mb-2">Sobre o hotel</h2>

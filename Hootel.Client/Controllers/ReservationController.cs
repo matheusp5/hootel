@@ -17,9 +17,9 @@ public class ReservationController : Controller
     }
 
     [HttpPost("reserva")]
-    public async Task<IActionResult> Reservation([FromBody] int _rId)
+    public async Task<IActionResult> Reservation(string rId)
     {
-        var room = await _roomService.GetRoom(_rId);
+        var room = await _roomService.GetRoom(int.Parse(rId));
         var hotel = await _hotelService.GetHotel(room.HotelId);
         return View(new HotelRoomViewModel()
         {
@@ -30,7 +30,7 @@ public class ReservationController : Controller
 
 
     [HttpPost("reservado")]
-    public async Task<IActionResult> Reserved([FromBody] ReservationDTO dto)
+    public async Task<IActionResult> Reserved(ReservationDTO dto)
     {
         // not implemented yet
         throw new Exception();
