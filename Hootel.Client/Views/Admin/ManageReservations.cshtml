@@ -32,8 +32,8 @@
             <td>@reservation.CheckIn.ToString("dd/MM/yyyy")</td>
             <td>@reservation.CheckOut.ToString("dd/MM/yyyy")</td>
             <td>R$ @reservation.Total.ToString("F1")</td>
-            <td><a asp-controller="Hotel" asp-action="Room" asp-route-id="@reservation.RoomId">Ver</a></td>
-            <td><a asp-controller="Hotel" asp-action="Hotel" asp-route-id="@reservation.RoomId">Ver</a></td>
+            <td><a asp-controller="Hotel" asp-action="Room" asp-route-id="@reservation.RoomId">Ver</a> (Id @reservation.RoomId)</td>
+            <td><a asp-controller="Hotel" asp-action="Hotel" asp-route-id="@reservation.HotelId">Ver</a> (Id @reservation.HotelId)</td>
             <td>@reservation.ClientName</td>
             <td>@reservation.ClientAddress, @reservation.ClientCity, @reservation.ClientState</td>
             <td>

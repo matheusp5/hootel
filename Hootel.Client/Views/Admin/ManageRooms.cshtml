@@ -37,7 +37,7 @@
                     <input type="hidden" name="hId" value="@item.Room.Id" >
                     <button type="submit" class="btn btn-link">Excluir</button>
                 </form>
-                <a asp-controller="Hotel" asp-action="Room" asp-route-id="@item.Room.Id">Ver</a>
+                <a asp-controller="Hotel" asp-action="Room" asp-route-id="@item.Room.Id">Ver</a>  (Id @item.Hotel)
             </td>
         </tr>
     }
