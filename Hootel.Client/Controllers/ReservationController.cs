@@ -32,7 +32,16 @@ public class ReservationController : Controller
     [HttpPost("reservado")]
     public async Task<IActionResult> Reserved(ReservationDTO dto)
     {
-        // not implemented yet
-        throw new Exception();
+        var room = await _roomService.GetRoom(int.Parse(dto.RoomId));
+        var availableRooms = await _roomService.GetAvailableRooms(dto.CheckIn, dto.CheckOut);
+        
+        ViewBag.Available = false;
+        if(availableRooms.Contains(room))
+        {   
+            ViewBag.Available = true;
+            
+        }
+        
+        return View();
     }
 }

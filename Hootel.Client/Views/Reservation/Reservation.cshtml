@@ -10,6 +10,7 @@
 </h1>
 <div class="container mt-4">
     <form id="reservation-form" asp-controller="Reservation" asp-action="Reserved">
+        <input type="hidden" asp-for="DTO.RoomId" value="@Model.Room.Id" >
         <div class="form-group mb-4">
             <label for="checkin">Data de Check-in</label>
             <input asp-for="DTO.CheckIn" type="date" class="form-control" id="checkin" required>
